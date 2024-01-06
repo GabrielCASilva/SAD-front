@@ -1,0 +1,93 @@
+:root{
+  --dark-green: #006e25;
+  --yellow: #ffbc39;
+  
+  --background-gray: #f5f5f5;
+  --text-dark-gray: #292929;
+  --mid-gray: #919191;
+
+  --sb-max-width: 23.6rem;
+
+  --base-rem: 1rem;
+  --base-1-4rem: 1.4rem;
+  --base-2-4rem: 2.4rem;
+  --base-3-2rem: 3.2rem;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: 'Roboto', sans-serif;
+  color: var(--text-dark-gray);
+  font-size: 62.5%;
+}
+
+body{
+  font-size: 1.6rem;
+  background-color: var(--background-gray);
+}
+
+ul {
+  list-style-type: none;
+}
+
+/* containers */
+.container{
+  padding: 0 2.4rem;
+}
+
+.bloc{
+  display: block;
+}
+
+/* flexbox */
+.flex{
+  display: flex;
+}
+
+.align-center{
+  align-items: center;
+}
+
+.row{
+  flex-direction: row;
+}
+
+.column{
+  flex-direction: column;
+}
+
+/* fonts - weight */
+.b-500{
+  font-weight: 500;
+}
+
+.b-600{
+  font-weight: 600;
+}
+
+.b-700{
+  font-weight: 700;
+}
+
+/* zero paddings */
+.p-right-zero{
+  padding-right: 0;
+}
+
+.p-left-zero{
+  padding-left: 0;
+}
+
+.p-top-zero{
+  padding-top: 0;
+}
+
+.p-bottom-zero{
+  padding-bottom: 0;
+}
