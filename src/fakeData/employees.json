@@ -1,0 +1,44 @@
+{
+    "data": [
+        {
+            "id": 1,
+            "dataCadastro": "02/05/2022",
+            "nome": "Fernanda da Costa Lima",
+            "email": "fernanda_costa@gmail.com",
+            "cpf": "123.456.789-09",
+            "dataNascimento": "01/02/1992",
+            "sexo": "F",
+            "cep": "22210-030",
+            "endereco": "Rua do Catete, 200",
+            "telefone": "+55 21 98965-5214",
+            "foto": "https://img.freepik.com/fotos-gratis/feliz-bonito-mulher-jovem-posar-camera-em-parque-cidade_1262-19158.jpg",
+            "login": "fernandalima",
+            "senhaHash": "e8d95a51f3af4a3b134bf6bb680a213a",
+            "cargo": {
+                "id": 1,
+                "nome": "Servidor",
+                "tipoAvaliacao": "",
+                "permitidoManterMeta": "",
+                "permitidoAvaliacaoServidor": "",
+                "permitidoAvaliacaoSupervisor": "",
+                "permitidoManterFuncionario": "",
+                "permitidoManterSetor": "",
+                "permitidoManterTarefa": "",
+                "permitidoAtribuirTarefa": "",
+                "permitidoProgredirTarefa": ""
+            },
+            "setor": {
+                "id": 1,
+                "nome": "Botânica",
+                "localizacao": "",
+                "ramal": ""
+            },
+            "situacao": {
+                "nome": "",
+                "descricao": ""
+            }
+        }
+    ],
+    "page": 1,
+    "limit": 10
+}

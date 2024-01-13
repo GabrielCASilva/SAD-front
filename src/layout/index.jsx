@@ -11,7 +11,7 @@ export default function Layout(){
             <Header/>
             <div className="container flex">
                 <Sidebar/>
-                <div className="container">
+                <div className="container w-100">
                     <Outlet />
                 </div>
             </div>

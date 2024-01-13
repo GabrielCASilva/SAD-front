@@ -4,6 +4,7 @@ import Layout from "./layout"
 import Goals from "./pages/Goals"
 import Employees from "./pages/Employees"
 import Sector from "./pages/Sector"
+import EmployeeDetail from "./pages/EmployeeDetail"
 
 export default function Routers(){
     return(
@@ -13,6 +14,7 @@ export default function Routers(){
                     <Route index element={<Tasks/>} />
                     <Route path="metas" element={<Goals/>} />
                     <Route path="funcionarios" element={<Employees/>} />
+                    <Route path="funcionarios/:id" element={<EmployeeDetail/>} />
                     <Route path="setor" element={<Sector/>} />
                 </Route>
                 <Route path="/teste" element={<h1>TESTE</h1>}/>
