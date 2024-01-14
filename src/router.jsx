@@ -17,7 +17,6 @@ export default function Routers(){
                     <Route path="funcionarios/:id" element={<EmployeeDetail/>} />
                     <Route path="setor" element={<Sector/>} />
                 </Route>
-                <Route path="/teste" element={<h1>TESTE</h1>}/>
             </Routes>
         </Router>
     )
