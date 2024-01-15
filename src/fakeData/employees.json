@@ -18,14 +18,14 @@
                 "id": 1,
                 "nome": "Servidor",
                 "tipoAvaliacao": "",
-                "permitidoManterMeta": "",
-                "permitidoAvaliacaoServidor": "",
-                "permitidoAvaliacaoSupervisor": "",
-                "permitidoManterFuncionario": "",
-                "permitidoManterSetor": "",
-                "permitidoManterTarefa": "",
-                "permitidoAtribuirTarefa": "",
-                "permitidoProgredirTarefa": ""
+                "permitidoManterMeta": false,
+                "permitidoAvaliacaoServidor": false,
+                "permitidoAvaliacaoSupervisor": false,
+                "permitidoManterFuncionario": false,
+                "permitidoManterSetor": false,
+                "permitidoManterTarefa": false,
+                "permitidoAtribuirTarefa": true,
+                "permitidoProgredirTarefa": true
             },
             "setor": {
                 "id": 1,

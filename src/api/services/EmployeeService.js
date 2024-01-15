@@ -6,7 +6,7 @@ export default class EmployeeService extends Service{
         
         const response = await this.call({
             method: METHOD.GET,
-            url: "/employees.json",
+            url: "/funcionario.json",
             signal: signal
         })
 
