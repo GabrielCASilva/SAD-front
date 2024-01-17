@@ -8,9 +8,9 @@ export default function Table(props){
     return (
       <AntdTable columns={columns} dataSource={data} 
         rowKey={(record) => record.id}
-        onRow={(record, rowIndex) => {
+        onRow={(record) => {
             return {
-              onClick: (event) => navigate(`/${url}/${rowIndex}`)
+              onClick: (event) => navigate(`/${url}/${record.id}`)
             }
           }}
         />
