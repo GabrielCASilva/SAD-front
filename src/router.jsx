@@ -6,6 +6,7 @@ import Employees from "./pages/Employees"
 import Sector from "./pages/Sector"
 import EmployeeDetail from "./pages/EmployeeDetail"
 
+// COMENTÁRIOS
 export default function Routers(){
     return(
         <Router>
