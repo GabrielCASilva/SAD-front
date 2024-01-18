@@ -10,12 +10,12 @@ export default function EmployeeDetail(){
 
     return (
         <>
-            <Title>Funcionários {">"} {data.nome}</Title>
+            <Title><span style={{color: 'var(--white-gray)'}}>Funcionários {">"}</span> {data.nome}</Title>
             <div className="flex" style={{gap: "var(--base-2-4rem)"}}>
                 <div className="flex column" style={{gap: "var(--base-1-4rem)"}}>
                     <div></div>
                     <div></div>
-                    <PerformanceAppraisalModal />
+                    <PerformanceAppraisalModal employee={data} />
                     <Button>Desativar funcionário</Button>
                     <Button>Editar dados</Button>
                 </div>
