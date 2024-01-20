@@ -4,12 +4,12 @@ const URL = "/tarefas"
 
 export default class TaskService extends Service{
     static async getTasks(props) {
-        const {signal} = props
+        const {signal = null} = props || {}
          
         const response = await this.call({
             method: METHOD.GET,
             url: URL,
-            signal: signal
+            signal
         })
         
         return response

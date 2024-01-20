@@ -5,6 +5,12 @@ import 'dayjs/locale/pt-br'
 import ptBR from 'antd/locale/pt_BR'
 import dayjs from 'dayjs'
 
+import isSameOrAfter from 'dayjs/plugin/isSameOrAfter'
+import isSameOrBefore from 'dayjs/plugin/isSameOrBefore'
+
+dayjs.extend(isSameOrAfter)
+dayjs.extend(isSameOrBefore)
+
 dayjs.locale('pt-br')
 
 export default function App() {

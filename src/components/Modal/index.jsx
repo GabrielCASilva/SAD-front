@@ -1,7 +1,6 @@
 import { Button, Modal as AntdModal } from 'antd';
 import { useState } from 'react';
 
-// corrigir esse enum
 const FOOTER_CONTENT = {
     confirm: ConfirmButton,
     close: CloseButton
@@ -11,7 +10,7 @@ export default function Modal(props){
     const {titleButton, footer, children} = props
     const [isModalOpen, setIsModalOpen] = useState(false);
 
-    const {type} = footer
+    const {type = null, handleClick = null} = footer()
 
     const showModal = () => {
         setIsModalOpen(true)
@@ -21,7 +20,7 @@ export default function Modal(props){
         setIsModalOpen(false)
     }
 
-    const footerType = FOOTER_CONTENT[type]({...footer, closeModal})
+    const footerType = type !== null ? FOOTER_CONTENT[type]({handleClick, closeModal}) : null
     return (
         <>
             <Button onClick={showModal}>{titleButton}</Button>
