@@ -16,12 +16,13 @@ export default class EmployeeService extends Service{
     }
 
     static async getEmployee(props) {
-        const {signal, id} = props
+        const {signal, id, params} = props
 
         const response = await this.call({
             method: METHOD.GET,
             url: `${URL}/${id}`,
-            signal: signal
+            signal: signal,
+            params
         })
 
         return response

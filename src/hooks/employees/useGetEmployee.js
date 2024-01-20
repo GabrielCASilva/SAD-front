@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import EmployeeService from "../../api/services/EmployeeService"
 
 export const useGetEmployee = (props) => {
-    const {id} = props
+    const {id, params} = props
     
     const [data, setData] = useState({})
     const [isLoading, setIsLoading] = useState(false)
@@ -16,7 +16,7 @@ export const useGetEmployee = (props) => {
             try{
                 setIsLoading(true)
                 
-                const response = await EmployeeService.getEmployee({signal, id})
+                const response = await EmployeeService.getEmployee({signal, id, params})
 
                 setData(response)
                 setIsError(false)

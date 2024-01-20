@@ -3,19 +3,34 @@ import { Title } from "../../components/Titles"
 import { Button } from 'antd'
 import { useGetEmployee } from "../../hooks/employees/useGetEmployee"
 import { useParams } from "react-router-dom"
+import { useGetTasks } from "../../hooks/tasks/useGetTasks"
 
 export default function EmployeeDetail(){
     const {id} = useParams()
-    const {data, isLoading} = useGetEmployee({id})
+    const {data: employee, isLoading: isEmployeeLoading} = useGetEmployee({id, params:{
+        _expand: "cargo",
+
+    }})
+
+    const {data: tasks, isLoading: isTasksLoading} = useGetTasks()
+
+    const employeeTasks = tasks.filter((task) => {
+        if(employee.cargo.nome === "Servidor"){
+            return task.funcionarioAlocadoId === employee.id
+        }
+        return [] 
+    })
+
+    console.log(employeeTasks)
 
     return (
         <>
-            <Title><span style={{color: 'var(--white-gray)'}}>Funcionários {">"}</span> {data.nome}</Title>
+            <Title><span style={{color: 'var(--white-gray)'}}>Funcionários {">"}</span> {employee.nome}</Title>
             <div className="flex" style={{gap: "var(--base-2-4rem)"}}>
                 <div className="flex column" style={{gap: "var(--base-1-4rem)"}}>
                     <div></div>
                     <div></div>
-                    <PerformanceAppraisalModal employee={data} />
+                    <PerformanceAppraisalModal employee={employee} />
                     <Button>Desativar funcionário</Button>
                     <Button>Editar dados</Button>
                 </div>

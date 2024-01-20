@@ -7,9 +7,9 @@ import { DATE_FORMATS, formatISODate, isDateSameOrAfter, isDateSameOrBefore } fr
 const { RangePicker } = DatePicker
 
 export default function PerformanceAppraisalModal(props){
-    const { employee } = props
+    const { employee, employeeTasks = [] } = props
     const [date, setDate] = useState({initDate: "", finalDate: ""})
-    const [tasks, setTasks] = useState([])
+    const [tasks, setTasks] = useState(employeeTasks)
     const [phase, setPhase] = useState(1)
 
     const handleChangeDate = (value) => {
