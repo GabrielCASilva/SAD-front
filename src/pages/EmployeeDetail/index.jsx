@@ -9,7 +9,6 @@ export default function EmployeeDetail(){
     const {id} = useParams()
     const {data: employee, isLoading: isEmployeeLoading} = useGetEmployee({id, params:{
         _expand: "cargo",
-
     }})
 
     const {data: tasks, isLoading: isTasksLoading} = useGetTasks()
@@ -21,8 +20,6 @@ export default function EmployeeDetail(){
         return [] 
     })
 
-    console.log(employeeTasks)
-
     return (
         <>
             <Title><span style={{color: 'var(--white-gray)'}}>Funcionários {">"}</span> {employee.nome}</Title>
@@ -30,7 +27,7 @@ export default function EmployeeDetail(){
                 <div className="flex column" style={{gap: "var(--base-1-4rem)"}}>
                     <div></div>
                     <div></div>
-                    <PerformanceAppraisalModal employee={employee} />
+                    <PerformanceAppraisalModal employeeTasks={employeeTasks} />
                     <Button>Desativar funcionário</Button>
                     <Button>Editar dados</Button>
                 </div>

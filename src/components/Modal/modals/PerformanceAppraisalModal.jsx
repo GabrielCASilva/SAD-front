@@ -1,16 +1,17 @@
 import Modal from "..";
 import { DatePicker } from 'antd';
 import { useEffect, useState } from "react";
-import TaskService from "../../../api/services/TaskService";
 import { DATE_FORMATS, formatISODate, isDateSameOrAfter, isDateSameOrBefore } from "../../../utils/date";
+import { useNavigate } from "react-router-dom";
 
 const { RangePicker } = DatePicker
 
 export default function PerformanceAppraisalModal(props){
-    const { employee, employeeTasks = [] } = props
+    const { employeeTasks = [] } = props
     const [date, setDate] = useState({initDate: "", finalDate: ""})
     const [tasks, setTasks] = useState(employeeTasks)
     const [phase, setPhase] = useState(1)
+    const navigate = useNavigate()
 
     const handleChangeDate = (value) => {
         const initDate = formatISODate(value[0])
@@ -22,15 +23,12 @@ export default function PerformanceAppraisalModal(props){
     }
 
     const handleSubmitDate = () => {
+        let data
         switch(phase){
             case 1:
-                getTasksQuantity(employee, date).then(
-                    (e) => {
-                        console.log(e)
-                        setTasks(e)
-                        setPhase(2)
-                    }
-                )
+                data = getTasksQuantity(employeeTasks, date)
+                setTasks(data)
+                setPhase(2)
                 break
             case 2:
                 break
@@ -53,7 +51,9 @@ export default function PerformanceAppraisalModal(props){
             case 3:
                 return {
                     type: "close",
-                    handleClick: () => {}
+                    handleClick: () => {
+                        navigate("/avaliacao", {state: {teste: "teste"}})
+                    }
                 }
             default:
                 return {}
@@ -78,7 +78,7 @@ export default function PerformanceAppraisalModal(props){
     }, [phase])
 
     return (
-        <Modal titleButton="Avaliação de desempenho" onClick={handleSubmitDate} footer={footerProps}>
+        <Modal titleButton="Avaliação de desempenho" footer={footerProps}>
             <DisplayModalContent {...displayProps}/>
         </Modal>
     )
@@ -112,18 +112,14 @@ function DisplayModalContent(props){
     }
 }
 
-const getTasksQuantity = async (employee, date) => {
+const getTasksQuantity = (tasks, date) => {
     // TODO: Tarefas vão vir de outro componente
     // getTasksFromPerson()
-    const tasks = await TaskService.getTasks()
-    console.log(tasks)
-
     const employeeTasks = tasks.filter((task) => {
-        const isEmployeesTasks = task.idFuncionarioAlocado === employee.id
         const initialBefore = isDateSameOrBefore(date.initDate, task.dataCriacao)
         const finalAfter = task.dataConclusao !== "" ? isDateSameOrAfter(date.finalDate, task.dataConclusao) : true
 
-        return isEmployeesTasks && initialBefore && finalAfter 
+        return initialBefore && finalAfter 
     })
     
     return employeeTasks
