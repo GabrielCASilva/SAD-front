@@ -59,6 +59,10 @@ ul {
   align-items: center;
 }
 
+.justify-center{
+  justify-content: center;
+}
+
 .row{
   flex-direction: row;
 }
