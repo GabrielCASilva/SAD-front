@@ -1,9 +1,9 @@
 import Service, { METHOD } from "../core"
 
-const URL = "/funcionarios"
+const URL = "/metas"
 
-export default class EmployeeService extends Service{
-    static async getEmployees(props) {
+export default class GoalService extends Service{
+    static async getTasks(props) {
         const {signal} = props
          
         const response = await this.call({
@@ -15,20 +15,19 @@ export default class EmployeeService extends Service{
         return response
     }
 
-    static async getEmployee(props) {
-        const {signal, id, params} = props
+    static async getTask(props){
+        const {signal, id} = props
 
         const response = await this.call({
             method: METHOD.GET,
             url: `${URL}/${id}`,
-            signal: signal,
-            params
+            signal: signal
         })
 
         return response
     }
 
-    static async postEmployee(props) {
+    static async postTask(props){
         const {signal, data} = props
 
         await this.call({
@@ -39,8 +38,8 @@ export default class EmployeeService extends Service{
         })
     }
 
-    static async updateEmployee(props){
-        const {signal, id, data} = props
+    static async uptadeTask(props){
+        const {signal, data, id} = props
 
         await this.call({
             method: METHOD.PATCH,

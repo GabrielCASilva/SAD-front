@@ -28,9 +28,8 @@ const COLUMNS = [
         title: 'Setor',
         dataIndex: 'setor',
         key: 'setor',
-        render: (setor) => 
+        render: (setor) =>
             setor.nome
-        
     },
 ]
 

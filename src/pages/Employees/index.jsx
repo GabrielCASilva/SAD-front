@@ -5,7 +5,10 @@ const { Search } = Input;
 
 export default function Employees(){
     return (
-        <> 
+        <div style={{
+            maxWidth: 1620,
+            width: "100%"
+        }}> 
             <Title>Funcionários</Title>
             <div className="flex column" style={{gap: "var(--base-2-4rem)"}}>
                 <div className="flex">
@@ -23,6 +26,6 @@ export default function Employees(){
                 </div>
                 <EmployeesTable />
             </div>
-        </>
+        </div>
     )
 }

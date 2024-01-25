@@ -5,6 +5,7 @@
   --background-gray: #f5f5f5;
   --text-dark-gray: #292929;
   --mid-gray: #919191;
+  --white-gray: #c4c4c4;
 
   --sb-max-width: 23.6rem;
 
@@ -56,6 +57,10 @@ ul {
 
 .align-center{
   align-items: center;
+}
+
+.justify-center{
+  justify-content: center;
 }
 
 .row{

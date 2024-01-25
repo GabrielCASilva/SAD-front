@@ -5,6 +5,7 @@ import Goals from "./pages/Goals"
 import Employees from "./pages/Employees"
 import Sector from "./pages/Sector"
 import EmployeeDetail from "./pages/EmployeeDetail"
+import { Appraisal } from "./pages/Appraisal"
 
 export default function Routers(){
     return(
@@ -16,6 +17,7 @@ export default function Routers(){
                     <Route path="funcionarios" element={<Employees/>} />
                     <Route path="funcionarios/:id" element={<EmployeeDetail/>} />
                     <Route path="setor" element={<Sector/>} />
+                    <Route path="avaliacao" element={<Appraisal />} />
                 </Route>
             </Routes>
         </Router>

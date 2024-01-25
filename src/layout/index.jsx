@@ -9,9 +9,9 @@ export default function Layout(){
     return (
         <div className="page-container">
             <Header/>
-            <div className="container flex">
+            <div className="container flex p-right-zero">
                 <Sidebar/>
-                <div className="container w-100">
+                <div className="container flex w-100 justify-center">
                     <Outlet />
                 </div>
             </div>
