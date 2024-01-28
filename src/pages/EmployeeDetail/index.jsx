@@ -4,6 +4,7 @@ import { useGetEmployee } from "../../hooks/employees/useGetEmployee"
 import { useParams } from "react-router-dom"
 import { useGetTasks } from "../../hooks/tasks/useGetTasks"
 import Button from "../../components/Button"
+import EmployeeDetailCard from "../../components/Card/cards/EmployeeDetailCard"
 
 export default function EmployeeDetail(){
     const {id} = useParams()
@@ -31,7 +32,8 @@ export default function EmployeeDetail(){
                     <Button>Desativar funcionário</Button>
                     <Button>Editar dados</Button>
                 </div>
-                <div className="flex column">
+                <div className="flex column" style={{width: '100%'}}>
+                    <EmployeeDetailCard />
                 </div>
             </div>
         </>

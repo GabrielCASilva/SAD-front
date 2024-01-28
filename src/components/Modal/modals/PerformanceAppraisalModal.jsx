@@ -78,7 +78,7 @@ export default function PerformanceAppraisalModal(props){
     }, [phase])
 
     return (
-        <Modal titleButton="Avaliação de desempenho" typeButton="a" footer={footerProps}>
+        <Modal titleButton="Avaliação de desempenho" styleButton="yellow" footer={footerProps}>
             <DisplayModalContent {...displayProps}/>
         </Modal>
     )
