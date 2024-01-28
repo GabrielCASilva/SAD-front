@@ -1,9 +1,9 @@
 import PerformanceAppraisalModal from "../../components/Modal/modals/PerformanceAppraisalModal"
 import { Title } from "../../components/Titles"
-import { Button } from 'antd'
 import { useGetEmployee } from "../../hooks/employees/useGetEmployee"
 import { useParams } from "react-router-dom"
 import { useGetTasks } from "../../hooks/tasks/useGetTasks"
+import Button from "../../components/Button"
 
 export default function EmployeeDetail(){
     const {id} = useParams()

@@ -1,12 +1,12 @@
-import EmployeesTable from "../../components/Table/tables/EmployeesTable";
+import TasksTable from "../../components/Table/tables/TasksTable";
 import { Title } from "../../components/Titles";
 import { Input, Button, Select } from 'antd';
 const { Search } = Input;
 
-export default function Employees(){
+export default function Tasks(){
     return (
-        <> 
-            <Title>Funcionários</Title>
+        <>
+            <Title>Tarefas</Title>
             <div className="flex column" style={{gap: "var(--base-2-4rem)"}}>
                 <div className="flex">
                     <Search/>
@@ -21,7 +21,7 @@ export default function Employees(){
                     ]} placeholder="Ordernação" />
                     <Select placeholder="Mostrar apenas"/>
                 </div>
-                <EmployeesTable />
+                <TasksTable />
             </div>
         </>
     )

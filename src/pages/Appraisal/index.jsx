@@ -1,7 +1,7 @@
 import { useLocation } from "react-router-dom"
 import { ReportModal } from "../../components/Modal/modals/ReportModal"
 
-export function Appraisal(){
+export default function Appraisal(){
   const location = useLocation()
   const { state } = location
   console.log(state)
