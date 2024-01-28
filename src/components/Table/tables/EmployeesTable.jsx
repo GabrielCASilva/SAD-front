@@ -1,4 +1,4 @@
-import Table from '../../../components/Table';
+import Table from '..'
 import { useGetEmployees } from '../../../hooks/employees/useGetEmployees';
 
 const COLUMNS = [

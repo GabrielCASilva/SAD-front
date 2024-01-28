@@ -5,7 +5,7 @@ import Goals from "./pages/Goals"
 import Employees from "./pages/Employees"
 import Sector from "./pages/Sector"
 import EmployeeDetail from "./pages/EmployeeDetail"
-import { Appraisal } from "./pages/Appraisal"
+import Appraisal from "./pages/Appraisal"
 
 export default function Routers(){
     return(
