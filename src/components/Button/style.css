@@ -1,20 +1,26 @@
 .button{
     font-size: var(--base-1-4rem);
     padding: 1rem;
-    height: 100%;
+    height: fit-content;
     border-radius: .7rem;
     width: 100%;
+    font-weight: 600;
+    line-height: var(--base-1-4rem);
 }
 
-.button-yellow, .button-yellow:hover{
+
+.button-yellow{
     background-color: var(--yellow);
     color: var(--white);
+    border: none;
 }
 
 .button-yellow:hover{
     background-color: var(--yellow) !important;
     color: var(--white) !important;
+    border: none;
 }
+
 
 .button-white{
     background-color: var(--white);
@@ -28,12 +34,28 @@
     color: var(--dark-green) !important;
 }
 
+
 .button-gray{
     background-color: var(--white-gray);
     color: var(--white);
+    border: none;
 }
 
 .button-gray:hover{
     background-color: var(--white-gray) !important;
     color: var(--white) !important;
+    border: none;
+}
+
+
+.button-green{
+    background-color: var(--dark-green);
+    color: var(--white);
+    border: none;
+}
+
+.button-green:hover{
+    background-color: var(--dark-green) !important;
+    color: var(--white) !important;
+    border: none;
 }

@@ -91,7 +91,7 @@ function DisplayModalContent(props){
         case 1:
             return (
                 <>
-                    <p>Selecione o intervalo de tempo que deseja proceguir com a avaliação</p>
+                    <p style={{marginBottom: "2.4rem"}}>Selecione o intervalo de tempo que deseja proceguir com a avaliação</p>
                     <RangePicker defaultValue={[]} format={DATE_FORMATS.BR_DATE} onChange={handleChangeDate}/>
                 </>
             )

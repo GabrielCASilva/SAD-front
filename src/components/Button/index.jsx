@@ -7,7 +7,8 @@ export default function Button(props){
     const BUTTON_STYLE = {
         yellow: "button-yellow",
         white: "button-white",
-        gray: "button-gray"
+        gray: "button-gray",
+        green: "button-green",
     }
 
     return (

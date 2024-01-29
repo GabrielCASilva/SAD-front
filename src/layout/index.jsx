@@ -12,7 +12,7 @@ export default function Layout(){
             <div className="container flex p-right-zero">
                 <Sidebar/>
                 <div className="container flex w-100 justify-center">
-                    <div className="outlet-container"> 
+                    <div className="outlet-container flex column"> 
                         <Outlet />
                     </div>
                 </div>

@@ -1,4 +1,5 @@
 .title{
     padding: var(--base-3-2rem) 0 4.6rem;
     color: var(--dark-green);
+    font-size: var(--base-2-4rem);
 }

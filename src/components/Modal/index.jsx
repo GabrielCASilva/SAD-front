@@ -1,6 +1,7 @@
 import { Modal as AntdModal } from 'antd';
 import { useState } from 'react';
 import Button from '../Button';
+import "./style.css"
 
 const FOOTER_CONTENT = {
     confirm: ConfirmButton,
@@ -26,7 +27,12 @@ export default function Modal(props){
         <>
             <Button style={styleButton} onClick={showModal}>{titleButton}</Button>
 
-            <AntdModal open={isModalOpen} onCancel={closeModal} footer={footerType}>
+            <AntdModal 
+                centered 
+                open={isModalOpen} 
+                onCancel={closeModal} 
+                footer={footerType}
+                width={687}>
                 {children}
             </AntdModal>
         </>
@@ -36,7 +42,9 @@ export default function Modal(props){
 function ConfirmButton(props){
     const {handleClick} = props
     return (
-        <Button onClick={handleClick}>Confirmar</Button>
+        <div className='modal-button'>
+            <Button onClick={handleClick} style="green">Confirmar</Button>
+        </div>
     )
 }
 
@@ -49,6 +57,8 @@ function CloseButton(props){
     }
 
     return (
-        <Button onClick={onClick}>Fechar</Button>
+        <div className='modal-button'>
+            <Button onClick={onClick} style="gray">Fechar</Button>
+        </div>
     )
 }

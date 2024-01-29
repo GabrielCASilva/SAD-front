@@ -1,38 +1,36 @@
 import { Card as AntdCard } from 'antd'; 
 import { useState } from 'react';
+import "./style.css";
 
-const tabList = [
-    {
-      key: 'tab1',
-      tab: 'tab1',
-    },
-    {
-      key: 'tab2',
-      tab: 'tab2',
-    },
-];
+export default function Card(props){
+    const {contentList, tabList} = props;
+    const [activeTabKey, setActiveTabKey] = useState('tab1');
 
-const contentList = {
-    tab1: <p>content1</p>,
-    tab2: <p>content2</p>,
-};
-
-export default function Card(){
-    const [activeTabKey, setActiveTabKey] = useState('tab2');
-
-    const onTab2Change = (key) => {
+    const onTabChange = (key) => {
         setActiveTabKey(key);
-      };
+    };
 
     return (
-        <AntdCard style={{width: '100%'}} 
+        <AntdCard className="w-100 h-100 card"
             tabList={tabList} 
-            onTabChange={onTab2Change} 
+            onTabChange={onTabChange} 
             activeTabKey={activeTabKey}
             tabProps={{
                 size: 'middle',
             }}>
             {contentList[activeTabKey]}
+        </AntdCard>
+    )
+}
+
+export function SimpleCard(props){
+    const {children, containerClasses} = props;
+
+    return (
+        <AntdCard className="w-100 card">
+            <div className={`simple-card flex column ${containerClasses}`}>
+                {children}
+            </div>
         </AntdCard>
     )
 }
