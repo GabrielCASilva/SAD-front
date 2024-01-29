@@ -5,7 +5,6 @@
 
 .ant-card-head{
   border-color: var(--white-gray) !important;
-
 }
 
 .ant-tabs-nav::before{
@@ -29,4 +28,10 @@
 .simple-card{
   font-size: 1.4rem;
   gap: 1.4rem;
+}
+
+.p-none > .ant-card-body{
+  padding: 0 !important;
+  height: calc(100% - 4.5rem);
+  overflow: auto;
 }

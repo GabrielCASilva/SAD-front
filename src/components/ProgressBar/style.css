@@ -1,0 +1,4 @@
+.ant-progress-inner{
+  border: .1rem solid var(--text-dark-gray);
+  background-color: #fff !important;
+}

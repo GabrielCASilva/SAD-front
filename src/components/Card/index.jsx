@@ -11,7 +11,7 @@ export default function Card(props){
     };
 
     return (
-        <AntdCard className="w-100 h-100 card"
+        <AntdCard className="w-100 h-100 card p-none"
             tabList={tabList} 
             onTabChange={onTabChange} 
             activeTabKey={activeTabKey}

@@ -3,3 +3,9 @@
     color: var(--dark-green);
     font-size: var(--base-2-4rem);
 }
+
+.subtitle{
+    font-size: 2rem;
+    color: #292929;
+    font-weight: 700;
+}

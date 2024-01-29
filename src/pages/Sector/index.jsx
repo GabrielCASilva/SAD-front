@@ -1,6 +1,7 @@
+import Button from "../../components/Button";
 import SectorTable from "../../components/Table/tables/SectorTable";
 import { Title } from "../../components/Titles";
-import { Input, Button, Select } from 'antd';
+import { Input, Select } from 'antd';
 const { Search } = Input;
 
 export default function Sector(){
@@ -10,7 +11,9 @@ export default function Sector(){
             <div className="flex column" style={{gap: "var(--base-2-4rem)"}}>
                 <div className="flex">
                     <Search/>
-                    <Button>Cadastrar funcionário</Button>
+                    <div style={{maxWidth: "fit-content"}}>
+                        <Button style="green">Cadastrar setor</Button>
+                    </div>
                 </div>
                 <div className="flex">
                     <Select options={[

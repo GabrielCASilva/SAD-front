@@ -6,5 +6,6 @@
 
 .outlet-container{
     max-width: 1920px;
-    width: 100%
+    width: 100%;
+    height: 100%;
 }

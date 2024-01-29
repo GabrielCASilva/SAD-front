@@ -1,10 +1,10 @@
-import Header from "../components/Header"
-import Sidebar from "../components/Sidebar"
+import Header from "../../components/Header"
+import Sidebar from "../../components/Sidebar"
 import { Outlet } from 'react-router-dom'
 
 import './style.css'
 
-export default function Layout(){
+export default function GlobalLayout(){
 
     return (
         <div className="page-container">

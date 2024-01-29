@@ -27,7 +27,7 @@ export default function EmployeeDetail(){
     return (
         <>
             <Title><span style={{color: 'var(--white-gray)'}}>Funcionários {">"}</span> {employee.nome}</Title>
-            <div className="flex h-100" style={{gap: "var(--base-2-4rem)"}}>
+            <div className="flex h-100" style={{gap: "var(--base-2-4rem)", minHeight: 0}}>
                 <div className="flex column" style={{gap: "var(--base-1-4rem)", maxWidth: "26.5rem", width: "100%"}}>
                     <SimpleCard containerClasses="align-center">
                         <div className="flex justify-center" 

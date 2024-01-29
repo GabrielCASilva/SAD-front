@@ -46,9 +46,18 @@ ul {
   height: 100%;
 }
 
+.min-h-0{
+  min-height: 0;
+}
+
 /* containers */
 .container{
   padding: 0 2.4rem;
+}
+
+.container-top-bottom{
+  padding-top: 2.4rem;
+  padding-bottom: 2.4rem;
 }
 
 .block{
@@ -68,12 +77,28 @@ ul {
   justify-content: center;
 }
 
+.justify-between{
+  justify-content: space-between;
+}
+
 .row{
   flex-direction: row;
 }
 
 .column{
   flex-direction: column;
+}
+
+.gap-1-4rem{
+  gap: 1.4rem;
+}
+
+.gap-2-4rem{
+  gap: 2.4rem;
+}
+
+.gap-4-8rem{
+  gap: 4.8rem;
 }
 
 /* fonts - weight */
