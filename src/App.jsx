@@ -16,7 +16,19 @@ dayjs.locale('pt-br')
 export default function App() {
 
   return (
-    <ConfigProvider locale={ptBR}>
+    <ConfigProvider locale={ptBR} theme={{
+      components: {
+        Table: {
+          headerBg: "#fff",
+          footerColor: "#fff"
+        },
+        token: {
+          colorPrimary: "#006e25",
+          colorLinkActive: "#006e25",
+          colorLink: "#006e25"
+        }
+      },
+    }}>
       <Routers/>
     </ConfigProvider>
   )

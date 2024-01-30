@@ -38,6 +38,10 @@ ul {
   list-style-type: none;
 }
 
+.ant-border-color *{
+  border-color: var(--white-gray) !important;
+}
+
 .w-100{
   width: 100%;
 }

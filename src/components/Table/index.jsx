@@ -1,5 +1,6 @@
 import { Table as AntdTable } from 'antd'
 import { useNavigate } from 'react-router-dom'
+import "./style.css"
 
 export default function Table(props){
     const { columns, data, url } = props
@@ -13,6 +14,7 @@ export default function Table(props){
               onClick: (event) => navigate(`/${url}/${record.id}`)
             }
           }}
+        footer={() => {}}
         />
     )
 }

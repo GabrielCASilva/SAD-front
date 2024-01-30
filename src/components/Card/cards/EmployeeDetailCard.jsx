@@ -93,7 +93,7 @@ function AllEmployeesTasks(){
             <div style={{paddingBottom: "2.4rem"}}>
                 <SubTitle>Todas as tarefas</SubTitle>
             </div>
-            <div className="flex column gap-2-4rem">
+            <div className="flex column gap-2-4rem ant-border-color">
                 <Select placeholder="Ordenação"/>
                 <Search />
                 <TasksStateTable />
