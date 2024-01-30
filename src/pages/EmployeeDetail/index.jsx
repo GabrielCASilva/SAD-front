@@ -27,7 +27,7 @@ export default function EmployeeDetail(){
     const title = <><span style={{color: 'var(--white-gray)'}}>Funcionários {">"}</span> {employee.nome}</>
 
     return (
-        <DetailLayout title={title} card="employee">
+        <DetailLayout title={title} card="employees">
             <SimpleCard containerClasses="align-center">
                 <div className="flex justify-center" 
                     style={{width: "18.5rem", 

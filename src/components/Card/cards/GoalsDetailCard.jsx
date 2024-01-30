@@ -19,7 +19,7 @@ const contentList = {
     tab2: <p>content2</p>,
 };
 
-export default function EmployeeDetailCard(){
+export default function GoalsDetailCard(){
     return (
         <Card
             contentList={contentList}

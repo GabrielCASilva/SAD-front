@@ -11,7 +11,7 @@ export function ReportModal(){
     }
 
     return (
-        <Modal titleButton="Salvar Relatório" footer={footerProps}>
+        <Modal titleButton="Salvar Relatório" styleButton="green" footer={footerProps}>
             Relatório salvo com sucesso
         </Modal>
     )

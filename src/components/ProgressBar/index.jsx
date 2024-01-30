@@ -6,6 +6,5 @@ export default function ProgressBar(){
         strokeColor={{
           from: "#ffbc39",
           to: "#ffbc39",
-        }}
-        remainingColor="#fff"/>
+        }}/>
 }

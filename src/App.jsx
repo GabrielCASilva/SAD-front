@@ -22,11 +22,14 @@ export default function App() {
           headerBg: "#fff",
           footerColor: "#fff"
         },
-        token: {
+        Token: {
           colorPrimary: "#006e25",
           colorLinkActive: "#006e25",
           colorLink: "#006e25"
-        }
+        },
+        Progress: {
+          remainingColor: "#fff"
+        },
       },
     }}>
       <Routers/>
