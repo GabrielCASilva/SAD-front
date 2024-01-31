@@ -11,7 +11,7 @@ export default function Card(props){
     };
 
     return (
-        <AntdCard className="w-100 h-100 card p-none"
+        <AntdCard className="w-100 h-100 card p-none f-size-16"
             tabList={tabList} 
             onTabChange={onTabChange} 
             activeTabKey={activeTabKey}
@@ -24,13 +24,22 @@ export default function Card(props){
 }
 
 export function SimpleCard(props){
-    const {children, containerClasses} = props;
+    const {children, containerClasses = "", cardClasses = ""} = props;
 
     return (
-        <AntdCard className="w-100 card">
-            <div className={`simple-card flex column ${containerClasses}`}>
+        <AntdCard className={`w-100 card f-size-16 ${cardClasses}`}>
+            <div className={`flex column gap-1-4rem ${containerClasses}`}>
                 {children}
             </div>
+        </AntdCard>
+    )
+}
+
+export function CardWithoutTabs(props){
+    const {children} = props
+    return (
+        <AntdCard className="w-100 h-100 card p-none-m f-size-16">
+            {children}
         </AntdCard>
     )
 }

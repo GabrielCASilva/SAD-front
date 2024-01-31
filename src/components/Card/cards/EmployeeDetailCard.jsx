@@ -94,7 +94,9 @@ function AllEmployeesTasks(){
                 <SubTitle>Todas as tarefas</SubTitle>
             </div>
             <div className="flex column gap-2-4rem ant-border-color">
-                <Select placeholder="Ordenação"/>
+                <div className="w-fit-content">
+                    <Select placeholder="Ordenação"/>
+                </div>
                 <Search />
                 <TasksStateTable />
             </div>

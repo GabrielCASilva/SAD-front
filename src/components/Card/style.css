@@ -25,13 +25,28 @@
   background-color: var(--dark-green) !important;
 }
 
-.simple-card{
-  font-size: 1.4rem;
-  gap: 1.4rem;
-}
-
 .p-none > .ant-card-body{
   padding: 0 !important;
   height: calc(100% - 4.5rem);
   overflow: auto;
+}
+
+.p-none-m > .ant-card-body{
+  padding: 0 !important;
+  height: 100%;
+  overflow: auto;
+}
+
+
+/* border color */
+.card-border-color--green{
+  border-color: var(--dark-green);
+}
+
+.card-border-color--yellow{
+  border-color: var(--yellow);
+}
+
+.card-border-color-gray{
+  border-color: var(--white-gray);
 }
