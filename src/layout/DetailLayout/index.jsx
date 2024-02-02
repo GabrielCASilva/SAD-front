@@ -1,12 +1,14 @@
 import AppraisalCard from "../../components/Card/cards/AppraisalCard";
 import EmployeeDetailCard from "../../components/Card/cards/EmployeeDetailCard";
 import GoalsDetailCard from "../../components/Card/cards/GoalsDetailCard";
+import ProgressCard from "../../components/Card/cards/ProgressCard";
 import { Title } from "../../components/Titles";
 
 const CARDS = {
   employees: <EmployeeDetailCard />,
   goals: <GoalsDetailCard />,
-  appraisal: <AppraisalCard />
+  appraisal: <AppraisalCard />,
+  progress: <ProgressCard />
 }
 
 

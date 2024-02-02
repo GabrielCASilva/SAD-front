@@ -7,6 +7,7 @@ import Sector from "./pages/Sector"
 import EmployeeDetail from "./pages/EmployeeDetail"
 import Appraisal from "./pages/Appraisal"
 import GoalDetail from "./pages/GoalDetail"
+import Progress from "./pages/Progress"
 
 export default function Routers(){
     return(
@@ -20,6 +21,7 @@ export default function Routers(){
                     <Route path="funcionarios/:id" element={<EmployeeDetail/>} />
                     <Route path="setor" element={<Sector/>} />
                     <Route path="avaliacao" element={<Appraisal />} />
+                    <Route path="progresso" element={<Progress />} />
                 </Route>
             </Routes>
         </Router>
