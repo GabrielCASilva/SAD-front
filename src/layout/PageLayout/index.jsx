@@ -33,7 +33,7 @@ export default function PageLayout(props){
   return (
     <>
       <Title>{title}</Title>
-      <div className="flex column gap-2-4rem">
+      <div className="flex column gap-24">
         <div className="flex justify-between">
           <div className="search-input ant-border-color">
             <Search styles={{height: "100%"}} size="large" onChange={onSearchChance}/>
@@ -42,7 +42,7 @@ export default function PageLayout(props){
             <Button onClick={onClick} style="green">{buttonTitle}</Button>
           </div>
         </div>
-        <div className="flex gap-2-4rem ant-border-color">
+        <div className="flex gap-24 ant-border-color">
           <Select options={orderOptions} onChange={onOrderChange} />
           {role === "employees" && <Select options={roleOptions} onChange={onRoleChange}/>}
         </div>

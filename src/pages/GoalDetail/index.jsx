@@ -1,5 +1,6 @@
 import Button from "../../components/Button";
 import { SimpleCard } from "../../components/Card";
+import GoalsProgressModal from "../../components/Modal/modals/GoalsProgressModal";
 import { SubTitle } from "../../components/Titles";
 import DetailLayout from "../../layout/DetailLayout";
 
@@ -17,7 +18,7 @@ export default function GoalDetail(){
           <p>Início: [DATA]</p>
           <p>Final: [DATA]</p>
       </SimpleCard>
-      <Button>Progresso da meta</Button>
+      <GoalsProgressModal />
       <Button>Desativar funcionário</Button>
       <Button>Editar dados</Button>
     </DetailLayout>

@@ -28,7 +28,7 @@ export function SimpleCard(props){
 
     return (
         <AntdCard className={`w-100 card f-size-16 ${cardClasses}`}>
-            <div className={`flex column gap-1-4rem ${containerClasses}`}>
+            <div className={`flex column gap-14 ${containerClasses}`}>
                 {children}
             </div>
         </AntdCard>
@@ -41,5 +41,32 @@ export function CardWithoutTabs(props){
         <AntdCard className="w-100 h-100 card p-none-m f-size-16">
             {children}
         </AntdCard>
+    )
+}
+
+export function CardContainer(props){
+    const {children} = props
+    return (
+        <div className="container flex column gap-48 container-top-bottom">
+            {children}
+        </div>
+    )
+}
+
+export function CardRow(props){
+    const {children, classes = ""} = props
+    return (
+        <div className={`flex column gap-24 ${classes}`}>
+            {children}
+        </div>
+    )
+}
+
+export function TabContainer(props){
+    const {children, classes = ""} = props
+    return (
+        <div className={`flex column gap-48 container-top-bottom ${classes}`}>
+            {children}
+        </div>
     )
 }

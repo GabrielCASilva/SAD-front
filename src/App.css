@@ -104,15 +104,15 @@ ul {
   flex-direction: column;
 }
 
-.gap-1-4rem{
+.gap-14{
   gap: 1.4rem;
 }
 
-.gap-2-4rem{
+.gap-24{
   gap: 2.4rem;
 }
 
-.gap-4-8rem{
+.gap-48{
   gap: 4.8rem;
 }
 
@@ -153,6 +153,10 @@ ul {
 
 /* [PADDINGS] */
 /* zero paddings */
+.p-zero{
+  padding: 0;
+}
+
 .p-right-zero{
   padding-right: 0;
 }
@@ -167,4 +171,26 @@ ul {
 
 .p-bottom-zero{
   padding-bottom: 0;
+}
+
+/* [MARGINS] */
+/* zero margins */
+.m-zero{
+  margin: 0;
+}
+
+.m-right-zero{
+  margin-right: 0;
+}
+
+.m-left-zero{
+  margin-left: 0;
+}
+
+.m-top-zero{
+  margin-top: 0;
+}
+
+.m-bottom-zero{
+  margin-bottom: 0;
 }
