@@ -1,4 +1,6 @@
 import Table from '..'
+import { useGetTasks } from '../../../hooks/tasks/useGetTasks'
+import Tag from '../../Tag';
 
 const COLUMNS = [
     {
@@ -29,16 +31,13 @@ const COLUMNS = [
         title: 'Conclusao',
         dataIndex: 'conclusao',
         key: 'conclusao',
-        render: (conclusao) => (
-            <Tag color="var(--dark-green)" key={conclusao}>
-                {conclusao}
-            </Tag>
-        )
-    },
-
-]
+        render: (conclusao) => 
+            <Tag type={conclusao}/>
+    }
+];
 
 export default function TasksTable(){
+    const { data } = useGetTasks();
 
-    return <Table columns={COLUMNS} data={[]} url="tarefas" />
+    return <Table columns={COLUMNS} data={data} url="tarefas" />
 }

@@ -41,9 +41,9 @@ export default function EmployeeDetail(){
                 <p className="b-500">Servidor</p>
             </SimpleCard>
             <SimpleCard>
-                <p>Setor:</p>
-                <p>Tarefas realizadas:</p>
-                <p>Tempo de empresa:</p>
+                <p>Setor: [SETOR]</p>
+                <p>Tarefas realizadas: [QTD]</p>
+                <p>Tempo de empresa: [ANOS]</p>
             </SimpleCard>
             <PerformanceAppraisalModal employeeTasks={employeeTasks} />
             <Button>Desativar funcionário</Button>

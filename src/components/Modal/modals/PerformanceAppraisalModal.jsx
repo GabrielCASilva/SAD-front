@@ -3,6 +3,7 @@ import { DatePicker } from 'antd';
 import { useEffect, useState } from "react";
 import { DATE_FORMATS, formatISODate, isDateSameOrAfter, isDateSameOrBefore } from "../../../utils/date";
 import { useNavigate } from "react-router-dom";
+import Spin from "../../Spin";
 
 const { RangePicker } = DatePicker
 
@@ -23,12 +24,12 @@ export default function PerformanceAppraisalModal(props){
     }
 
     const handleSubmitDate = () => {
-        let data
+        let data;
         switch(phase){
             case 1:
                 data = getTasksQuantity(employeeTasks, date)
                 setTasks(data)
-                setPhase(2)
+                setPhase(data.length > 0 ? 2 : 4)
                 break
             case 2:
                 break
@@ -55,6 +56,13 @@ export default function PerformanceAppraisalModal(props){
                         navigate("/avaliacao", {state: {teste: "teste"}})
                     }
                 }
+            case 4:
+                return {
+                    type: "close",
+                    handleClick: () => {
+                        setPhase(1)
+                    }
+                }
             default:
                 return {}
         }
@@ -62,8 +70,8 @@ export default function PerformanceAppraisalModal(props){
 
     const displayProps = {
         phase: phase,
-        handleChangeDate: handleChangeDate,
         tasks: tasks,
+        handleChangeDate: handleChangeDate,
         setPhase: setPhase
     }
 
@@ -97,16 +105,25 @@ function DisplayModalContent(props){
             )
         case 2:
             return (
-                <>
-                    <p>{tasks.length} Tarefas foram encontradas.</p>
-                    <p>Realizando o cálculo da avaliação de desempenho...</p>
-                </>
+                <div className="flex gap-14">
+                    <Spin />
+                    <div>
+                        <p><span style={{color: "var(--dark-green)"}}>{tasks.length}</span> Tarefas foram encontradas.</p>
+                        <p>Realizando o cálculo da avaliação de desempenho...</p>
+                    </div>
+                </div>
             )
         case 3:
             return (
                 <>
                     <p>Avaliação completa!</p>
                     <p>Feche para visualizar a avaliação</p>
+                </>
+            )
+        case 4:
+            return (
+                <>
+                    <p>Nenhuma tarefa foi encontrada no período selecionado.</p>
                 </>
             )
     }

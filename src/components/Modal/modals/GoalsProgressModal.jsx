@@ -3,6 +3,7 @@ import { DatePicker } from 'antd';
 import { useEffect, useState } from "react";
 import { DATE_FORMATS, formatISODate, isDateSameOrAfter, isDateSameOrBefore } from "../../../utils/date";
 import { useNavigate } from "react-router-dom";
+import Spin from "../../Spin";
 
 const { RangePicker } = DatePicker
 
@@ -97,7 +98,10 @@ function DisplayModalContent(props){
             )
         case 2:
             return (
-                <p>[ICONE] Realizando o cálculo do progresso da meta...</p>
+                <div className="flex gap-14">
+                    <Spin />
+                    <p>Realizando o cálculo do progresso da meta...</p>
+                </div>
             )
         case 3:
             return (

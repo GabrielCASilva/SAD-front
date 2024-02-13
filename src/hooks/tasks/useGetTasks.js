@@ -1,10 +1,11 @@
-import { useEffect, useState } from "react"
-import TaskService from "../../api/services/TaskService"
+import { useEffect } from "react";
+import TaskService from "../../api/services/TaskService";
+import { useStore } from "../../store";
 
-export const useGetTasks = () => {
-    const [data, setData] = useState([])
-    const [isLoading, setIsLoading] = useState(false)
-    const [isError, setIsError] = useState(false)
+export const useGetTasks = (props) => {
+    const { params } = props || {};
+    const { tasksSlice } = useStore();
+    const {tasks, loading, error, setLoading, setError, setTasks} = tasksSlice;
 
     useEffect(() => {
         const controller = new AbortController();
@@ -12,26 +13,30 @@ export const useGetTasks = () => {
         
         const fetch = async () => {
             try{
-                setIsLoading(true)
+                setLoading(true);
                 
-                const response = await TaskService.getTasks({signal})
+                const tasks = await TaskService.getTasks({signal, params});
 
-                setData(response)
-                setIsError(false)
-            } catch (error) {
-                setIsError(true)
+                setTasks({ tasks });
+                setError(false);
+            } catch (error) { 
+                setError(true);
             } finally {
-                setIsLoading(false)
+                setLoading(false);
             }
         }
     
-        fetch()
+        fetch();
 
         return () => {
-            console.log("cancelando...")
-            controller.abort()
+            console.log("cancelando...");
+            controller.abort();
         }
-    }, [])
+    }, []);
 
-    return {data, isLoading, isError}
+    return {
+        data: tasks, 
+        isLoading: loading,
+        isError: error
+    };
 }

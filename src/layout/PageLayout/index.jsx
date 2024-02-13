@@ -43,8 +43,8 @@ export default function PageLayout(props){
           </div>
         </div>
         <div className="flex gap-24 ant-border-color">
-          <Select options={orderOptions} onChange={onOrderChange} />
-          {role === "employees" && <Select options={roleOptions} onChange={onRoleChange}/>}
+          <Select options={orderOptions} onChange={onOrderChange} placeholder="Ordenação"/>
+          {role === "employees" && <Select options={roleOptions} onChange={onRoleChange} placeholder="Cargo"/>}
         </div>
         {TABLES[role]}
       </div>
