@@ -1,10 +1,10 @@
-import { useEffect, useState } from "react"
-import EmployeeService from "../../api/services/EmployeeService"
+import { useEffect } from "react";
+import EmployeeService from "../../api/services/EmployeeService";
+import { useStore } from "../../store";
 
 export const useGetEmployees = () => {
-    const [data, setData] = useState([])
-    const [isLoading, setIsLoading] = useState(false)
-    const [isError, setIsError] = useState(false)
+    const { employees } = useStore();
+    const { data, loading, error, setLoading, setError, setEmployees } = employees;
 
     useEffect(() => {
         const controller = new AbortController();
@@ -12,26 +12,30 @@ export const useGetEmployees = () => {
         
         const fetch = async () => {
             try{
-                setIsLoading(true)
+                setLoading(true);
                 
-                const response = await EmployeeService.getEmployees({signal})
+                const employees = await EmployeeService.getEmployees({signal});
 
-                setData(response)
-                setIsError(false)
+                setEmployees({ data: employees });
+                setError(false);
             } catch (error) {
-                setIsError(true)
+                setError(true);
             } finally {
-                setIsLoading(false)
+                setLoading(false);
             }
         }
     
-        fetch()
+        fetch();
 
         return () => {
-            console.log("cancelando...")
-            controller.abort()
+            console.log("cancelando...");
+            controller.abort();
         }
-    }, [])
+    }, []);
 
-    return {data, isLoading, isError}
+    return {
+        data, 
+        isLoading: loading,
+        isError: error
+    };
 }

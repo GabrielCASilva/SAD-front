@@ -4,8 +4,8 @@ import { useStore } from "../../store";
 
 export const useGetTasks = (props) => {
     const { params } = props || {};
-    const { tasksSlice } = useStore();
-    const {tasks, loading, error, setLoading, setError, setTasks} = tasksSlice;
+    const { tasks } = useStore();
+    const { data, loading, error, setLoading, setError, setTasks } = tasks;
 
     useEffect(() => {
         const controller = new AbortController();
@@ -17,7 +17,7 @@ export const useGetTasks = (props) => {
                 
                 const tasks = await TaskService.getTasks({signal, params});
 
-                setTasks({ tasks });
+                setTasks({ data: tasks });
                 setError(false);
             } catch (error) { 
                 setError(true);
@@ -35,7 +35,7 @@ export const useGetTasks = (props) => {
     }, []);
 
     return {
-        data: tasks, 
+        data, 
         isLoading: loading,
         isError: error
     };

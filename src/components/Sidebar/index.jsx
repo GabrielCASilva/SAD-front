@@ -1,11 +1,13 @@
-import { NavLink } from "react-router-dom"
-import Icon from "../Icon"
-import "./style.css"
+import { NavLink, useLocation } from "react-router-dom";
+import Icon from "../Icon";
+import "./style.css";
 
 export default function Sidebar(){
+    const location = useLocation();
+    const { pathname } = location;
 
     const navlist = [
-        {name: "Tarefas", icon: "tarefas", url: "/"},
+        {name: "Tarefas", icon: "tarefas", url: pathname === "/tarefas"? pathname: "/"},
         {name: "Funcionários", icon: "funcionarios", url: "funcionarios"},
         {name: "Setor", icon: "setor", url: "setor"},
         {name: "Metas", icon: "metas", url: "metas"},

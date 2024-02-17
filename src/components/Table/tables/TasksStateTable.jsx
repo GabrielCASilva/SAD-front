@@ -1,5 +1,5 @@
 import Table from '..'
-import { Tag } from 'antd';
+import Tag from '../../Tag';
 
 const COLUMNS = [
     {
@@ -9,7 +9,7 @@ const COLUMNS = [
     },
     {
         title: 'Título',
-        dataIndex: 'titulo',
+        dataIndex: 'nome',
         key: 'titulo',
     },
     {
@@ -23,19 +23,17 @@ const COLUMNS = [
         key: 'dataFinal'
     },
     {
-        title: 'Estado',
-        dataIndex: 'estado',
-        key: 'estado',
-        render: (estado) => (
-            <Tag color="var(--dark-green)" key={estado}>
-                {estado}
-            </Tag>
-        )
+        title: 'Conclusao',
+        dataIndex: 'conclusao',
+        key: 'conclusao',
+        render: (conclusao) => 
+            <Tag type={conclusao}/>
     },
 
 ]
 
-export default function TasksStateTable(){
+export default function TasksStateTable(props){
+    const { data } = props;
 
-    return <Table columns={COLUMNS} data={[]} url="tarefas" />
+    return <Table columns={COLUMNS} data={data} url="tarefas" />
 }

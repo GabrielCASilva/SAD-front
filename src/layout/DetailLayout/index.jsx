@@ -13,7 +13,12 @@ const CARDS = {
 
 
 export default function DetailLayout(props) {
-  const { title, children, card } = props;
+  const { title, children, card, loading = false } = props;
+
+  if(loading){
+    return <Title>Carregando...</Title>
+  }
+
   return (
     <>
       <Title>{title}</Title>

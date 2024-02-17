@@ -26,3 +26,10 @@ export function isDateSameOrAfter(base, compared){
 
     return baseConverted.isSameOrAfter(comparedConverted, 'day')
 }
+
+export function pastYears(date){
+    const baseYear = dayjs(date);
+    const currentDate = dayjs();
+
+    return currentDate.diff(baseYear, 'year');
+}

@@ -10,8 +10,8 @@ const COLUMNS = [
     },
     {
         title: 'Título',
-        dataIndex: 'titulo',
-        key: 'titulo',
+        dataIndex: 'nome',
+        key: 'nome',
     },
     {
         title: 'Setor',

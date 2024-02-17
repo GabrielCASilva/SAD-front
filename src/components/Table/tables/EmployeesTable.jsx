@@ -34,7 +34,7 @@ const COLUMNS = [
 ]
 
 export default function EmployeesTable(){
-    const { data } = useGetEmployees()
+    const { data } = useGetEmployees();
 
     return <Table columns={COLUMNS} data={data} url="funcionarios" />
 }

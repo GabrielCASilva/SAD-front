@@ -1,13 +1,13 @@
-import { useLocation } from "react-router-dom"
-import { ReportModal } from "../../components/Modal/modals/ReportModal"
-import { SimpleCard } from "../../components/Card"
-import DetailLayout from "../../layout/DetailLayout"
-import { SubTitle } from "../../components/Titles"
+import { useLocation } from "react-router-dom";
+import { ReportModal } from "../../components/Modal/modals/ReportModal";
+import { SimpleCard } from "../../components/Card";
+import DetailLayout from "../../layout/DetailLayout";
+import { SubTitle } from "../../components/Titles";
 
 export default function Appraisal(){
-  const location = useLocation()
-  const { state } = location
-  console.log(state)
+  const location = useLocation();
+  const { state } = location;
+  console.log(state);
 
   return (
     <DetailLayout title="[DATA] - [NOME]" card="appraisal">

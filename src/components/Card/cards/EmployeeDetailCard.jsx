@@ -4,6 +4,7 @@ import Button from "../../Button";
 import { SubTitle } from "../../Titles";
 import TasksStateTable from "../../Table/tables/TasksStateTable";
 import ProgressBar from "../../ProgressBar";
+import { useStore } from "../../../store";
 
 const { Search } = Input;
 
@@ -20,7 +21,7 @@ const tabList = [
 ];
 
 const contentList = {
-    tab1: Tab1(),
+    tab1: <Tab1 />,
     tab2: <p>content2</p>,
 };
 
@@ -33,7 +34,7 @@ export default function EmployeeDetailCard(){
     )
 }
 
-function Tab1(props){
+function Tab1(){
     return(
         <TabContainer>
             <CardRow>
@@ -47,6 +48,10 @@ function Tab1(props){
 }
 
 function EmployeesCurrentTask(){
+    const { employee } = useStore();
+    const { data } = employee;
+
+    // TODO: TAREFA ATUAL
     return (
         <>
             <div className="flex justify-between container">
@@ -84,6 +89,9 @@ function EmployeesCurrentTask(){
 
 
 function AllEmployeesTasks(){
+    const { employee } = useStore();
+    const { data } = employee;
+
     return (
         <>
             <SubTitle>Todas as tarefas</SubTitle>
@@ -92,7 +100,7 @@ function AllEmployeesTasks(){
                     <Select placeholder="Ordenação"/>
                 </div>
                 <Search />
-                <TasksStateTable />
+                <TasksStateTable data={data.tarefas} />
             </div>
         </>
     )

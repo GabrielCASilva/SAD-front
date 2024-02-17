@@ -8,13 +8,16 @@ import EmployeeDetail from "./pages/EmployeeDetail"
 import Appraisal from "./pages/Appraisal"
 import GoalDetail from "./pages/GoalDetail"
 import Progress from "./pages/Progress"
+import TaskDetail from "./pages/TaskDatail"
 
 export default function Routers(){
     return(
         <Router>
             <Routes>
-                <Route path="/" element={<Layout/>}>
+                <Route path="/" element={<Layout/>} >
                     <Route index element={<Tasks/>} />
+                    <Route path="tarefas" element={<Tasks/>} />
+                    <Route path="tarefas/:id" element={<TaskDetail/>} />
                     <Route path="metas" element={<Goals/>} />
                     <Route path="metas/:id" element={<GoalDetail/>} />
                     <Route path="funcionarios" element={<Employees/>} />
