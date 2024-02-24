@@ -1,4 +1,5 @@
 import { CardContainer, CardRow, CardWithoutTabs, SimpleCard } from "..";
+import { useStore } from "../../../store";
 import TasksStateTable from "../../Table/tables/TasksStateTable";
 import { SubTitle } from "../../Titles";
 
@@ -7,24 +8,27 @@ import { Input, Select } from "antd";
 const { Search } = Input;
 
 export default function AppraisalCard(){
+    const { appraisal } = useStore();
+    const { data } = appraisal;
+
     return (
         <CardWithoutTabs>
             <CardContainer>
                 <CardRow>
                     <SubTitle>Relatório geral</SubTitle>
                     <p>O Funcionário conseguiu atingir aproximadamente 
-                        <span className="b-500"> [X] </span> 
+                        <span className="b-500"> {data.performance}% </span> 
                         do total das métricas do período avaliado
                     </p>
                     <div className="flex gap-24">
                         <SimpleCard cardClasses="w-max-fit-content card-border-color--green">
-                            [X] tarefas concluidas
+                            {data.tasksCompleted} tarefas concluidas
                         </SimpleCard>
                         <SimpleCard cardClasses="w-max-fit-content card-border-color--yellow">
-                            [X] tarefas incompletas
+                            {data.tasksIncomplete} tarefas incompletas
                         </SimpleCard>
                         <SimpleCard cardClasses="w-max-fit-content card-border-color-gray">
-                            [X] tarefas pendentes
+                            {data.tasksPending} tarefas pendentes
                         </SimpleCard>
                     </div>
                 </CardRow>
@@ -39,7 +43,7 @@ export default function AppraisalCard(){
                         </div>
                     </div>
                     <Search />
-                    <TasksStateTable />
+                    <TasksStateTable data={data.tasks}/>
                 </CardRow>
             </CardContainer>
         </CardWithoutTabs>

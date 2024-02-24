@@ -50,8 +50,11 @@ function Tab1(){
 function EmployeesCurrentTask(){
     const { employee } = useStore();
     const { data } = employee;
+    const { tarefas } = data;
 
-    // TODO: TAREFA ATUAL
+    const currentTask = tarefas.find(tarefa => tarefa.dataInicio && !tarefa.dataConclusao) || {};
+    console.log(currentTask)
+
     return (
         <>
             <div className="flex justify-between container">
@@ -65,19 +68,19 @@ function EmployeesCurrentTask(){
                     zIndex: 1}}>
                     <div className="w-100" style={{maxWidth: "32.2rem", minHeight: "16rem"}}>
                         <SimpleCard cardClasses="h-100">
-                            <p className="b-600">Titulo da tarefa</p>
-                            <p>Descrição da tarefa</p>
+                            <p className="b-600">{currentTask.nome}</p>
+                            <p>{currentTask.descricao}</p>
                         </SimpleCard>
                     </div>
                     <div className="flex column justify-center w-100 b-500 gap-14">
                         <div className="flex justify-between">
-                            <p>Inicio: [DATA]</p>
-                            <p>Final: [DATA]</p>
-                            <p>Previsao: [DATA]</p>
+                            <p>Inicio: {currentTask?.dataInicio}</p>
+                            <p>Final: {currentTask?.dataPrevistaConclusao}</p>
+                            <p>Previsao: {currentTask?.dataPrevistaConclusao}</p>
                         </div>
                         <div>
                             <p>Tempo de progresso</p>
-                            <ProgressBar />
+                            <ProgressBar progress={currentTask?.taxaProgresso}/>
                         </div>
                     </div>
                 </div>
