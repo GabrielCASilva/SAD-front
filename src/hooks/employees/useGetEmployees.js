@@ -4,7 +4,7 @@ import { useStore } from "../../store";
 
 export const useGetEmployees = () => {
     const { employees } = useStore();
-    const { data, loading, error, setLoading, setError, setEmployees } = employees;
+    const { data, loading, error, setLoading, setError, setData } = employees;
 
     useEffect(() => {
         const controller = new AbortController();
@@ -16,7 +16,7 @@ export const useGetEmployees = () => {
                 
                 const employees = await EmployeeService.getEmployees({signal});
 
-                setEmployees({ data: employees });
+                setData({ data: employees });
                 setError(false);
             } catch (error) {
                 setError(true);

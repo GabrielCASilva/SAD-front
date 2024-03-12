@@ -1,4 +1,5 @@
 import Table from '..'
+import { useGetGoals } from '../../../hooks/goals/useGetGoals'
 
 const COLUMNS = [
     {
@@ -8,13 +9,15 @@ const COLUMNS = [
     },
     {
         title: 'Título',
-        dataIndex: 'titulo',
-        key: 'titulo',
+        dataIndex: 'nome',
+        key: 'nome',
     },
     {
         title: 'Autor',
-        dataIndex: 'autor',
-        key: 'autor',
+        dataIndex: 'responsavel',
+        key: 'responsavel',
+        render: (responsavel) =>
+            responsavel.nome
     },
     {
         title: 'Setor',
@@ -26,5 +29,7 @@ const COLUMNS = [
 ]
 
 export default function GoalsTable(){
-    return <Table columns={COLUMNS} data={[]} url="metas" />
+    const {data} = useGetGoals();
+    
+    return <Table columns={COLUMNS} data={data} url="metas" />
 }

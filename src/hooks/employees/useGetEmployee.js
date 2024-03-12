@@ -7,7 +7,7 @@ export const useGetEmployee = (props) => {
     const {id, params} = props;
     
     const { employee } = useStore();
-    const { data, loading, error, setLoading, setError, setEmployee } = employee;
+    const { data, loading, error, setLoading, setError, setData } = employee;
 
     useEffect(() => {
         const controller = new AbortController();
@@ -19,7 +19,7 @@ export const useGetEmployee = (props) => {
                 
                 const employee = await EmployeeService.getEmployee({signal, id, params});
 
-                setEmployee({data: employee});
+                setData({data: employee});
                 setError(false);
             } catch (error) {
                 setError(true);

@@ -2,25 +2,29 @@ import { Tag as AntdTag } from 'antd';
 import "./style.css";
 
 const TAGS = {
-    concluida: {
+    CONCLUIDA: {
         color: "var(--dark-green)",
         menssage: "Concluida",
         textColor: "white"
     },
-    pendente: {
+    ATIVA: {
         color: "var(--background-gray)",
         menssage: "Pendente"
     },
-    incompleta: {
+    ANDAMENTO: {
         color: "var(--yellow)",
         menssage: "Incompleta",
         textColor: "white"
-    }
+    },
+    INATIVA: {
+        color: "var(--background-gray)",
+        menssage: "Inativa"
+    },
 };
 
 export default function Tag(props){
     const { type } = props;
-    const { color, menssage, textColor } = TAGS[type.toLowerCase()];
+    const { color, menssage, textColor } = TAGS[type];
 
     return (
         <AntdTag color={color} className={textColor || ""}>

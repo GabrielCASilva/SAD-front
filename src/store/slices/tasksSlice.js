@@ -1,10 +1,11 @@
 export const createTasksSlice = (set) => ({
     data: [],
+    dataRef: [],
     loading: false,
     error: false,
-    setTasks: ({ data }) => 
+    setData: ({ data }) => 
         set((state) => (
-            { tasks: {...state.tasks, data}}
+            { tasks: {...state.tasks, data, dataRef: data}}
         )),
     setLoading: ( loading ) =>
         set((state) => (
@@ -13,5 +14,9 @@ export const createTasksSlice = (set) => ({
     setError: ( error ) =>
         set((state) => (
             { tasks: {...state.tasks, error}}
+        )),
+    filterData: ({data}) =>
+        set((state) => (
+            { tasks: {...state.tasks, data}}
         )),
 })

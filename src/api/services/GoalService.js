@@ -3,7 +3,7 @@ import Service, { METHOD } from "../core"
 const URL = "/metas"
 
 export default class GoalService extends Service{
-    static async getTasks(props) {
+    static async getGoals(props) {
         const {signal} = props
          
         const response = await this.call({
@@ -15,7 +15,7 @@ export default class GoalService extends Service{
         return response
     }
 
-    static async getTask(props){
+    static async getGoal(props){
         const {signal, id} = props
 
         const response = await this.call({
@@ -27,7 +27,7 @@ export default class GoalService extends Service{
         return response
     }
 
-    static async postTask(props){
+    static async postGoal(props){
         const {signal, data} = props
 
         await this.call({
@@ -38,7 +38,7 @@ export default class GoalService extends Service{
         })
     }
 
-    static async uptadeTask(props){
+    static async uptadeGoal(props){
         const {signal, data, id} = props
 
         await this.call({

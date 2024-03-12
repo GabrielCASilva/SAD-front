@@ -11,7 +11,7 @@ export const createEmployeeSlice = (set) => ({
     },
     loading: false,
     error: false,
-    setEmployee: ({ data }) => 
+    setData: ({ data }) => 
         set((state) => (
             { employee: {...state.employee, data}}
         )),

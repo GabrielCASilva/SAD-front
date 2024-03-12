@@ -6,6 +6,7 @@ import TasksTable from "../../components/Table/tables/TasksTable";
 import { Title } from "../../components/Titles";
 import { Input, Select } from 'antd';
 import "./style.css"
+import { useStore } from "../../store";
 
 const { Search } = Input;
 
@@ -26,9 +27,37 @@ export default function PageLayout(props){
     onClick = () => {}
   } = props
 
-  const onSearchChance = () => {} 
-  const onOrderChange = () => {} 
-  const onRoleChange = () => {}
+  const store = useStore();
+  const data = store[role].dataRef.length > 0 ? store[role]: undefined;
+
+  // TODO: Nâo esquecer de passar isso para o botao
+  const onSearchChance = (e) => {
+    setTimeout(() => {
+      const dataFiltered = data?.dataRef.filter((item) => {
+        if(!e.target.value)
+          return item;
+        
+        const lower = item.nome.toLowerCase();
+        return lower.includes(e.target.value);
+      })
+
+      data?.filterData({data: dataFiltered})
+    }, 1000);
+
+  }
+
+  // TODO: FAZER O FILTRO POR ORDER E POR ROLE
+  const onOrderChange = (e) => {
+    console.log(e);
+  }
+
+  const onRoleChange = (e) => {
+    console.log(e);
+  }
+
+  if(data && data?.loading){
+    return <Title>Carregando...</Title>;
+  }
 
   return (
     <>

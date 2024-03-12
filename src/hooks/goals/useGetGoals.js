@@ -1,11 +1,11 @@
 import { useEffect } from "react";
-import TaskService from "../../api/services/TaskService";
+import GoalService from "../../api/services/GoalService";
 import { useStore } from "../../store";
 
-export const useGetTasks = (props) => {
-    const { params } = props || {};
-    const { tasks } = useStore();
-    const { data, loading, error, setLoading, setError, setData } = tasks;
+export const useGetGoals = () => {
+    const { goals } = useStore();
+    const { data, loading, error, setLoading, setError, setData } = goals;
+
 
     useEffect(() => {
         const controller = new AbortController();
@@ -15,11 +15,11 @@ export const useGetTasks = (props) => {
             try{
                 setLoading(true);
                 
-                const tasks = await TaskService.getTasks({signal, params});
+                const goals = await GoalService.getGoals({signal});
 
-                setData({ data: tasks });
+                setData({ data: goals });
                 setError(false);
-            } catch (error) { 
+            } catch (error) {
                 setError(true);
             } finally {
                 setLoading(false);

@@ -28,11 +28,11 @@ const COLUMNS = [
             servidor.nome
     },
     {
-        title: 'Conclusao',
-        dataIndex: 'conclusao',
-        key: 'conclusao',
-        render: (conclusao) => 
-            <Tag type={conclusao}/>
+        title: 'Situação',
+        dataIndex: 'situacao',
+        key: 'situacao',
+        render: (situacao) => 
+            <Tag type={situacao}/>
     }
 ];
 

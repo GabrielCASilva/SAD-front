@@ -1,22 +1,22 @@
-export const createEmployeesSlice = (set) => ({
+export const createSectorsSlice = (set) => ({
     data: [],
     dataRef: [],
     loading: false,
     error: false,
     setData: ({ data }) => 
         set((state) => (
-            { employees: {...state.employees, data, dataRef: data}}
+            { sectors: {...state.sectors, data, dataRef: data}}
         )),
     setLoading: ( loading ) =>
         set((state) => (
-            { employees: {...state.employees, loading}}
+            { sectors: {...state.sectors, loading}}
         )),
     setError: ( error ) =>
         set((state) => (
-            { employees: {...state.employees, error}}
+            { sectors: {...state.sectors, error}}
         )),
     filterData: ({data}) =>
         set((state) => (
-            { employees: {...state.employees, data}}
+            { sectors: {...state.sectors, data}}
         )),
 })

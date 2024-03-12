@@ -23,11 +23,11 @@ const COLUMNS = [
         key: 'dataFinal'
     },
     {
-        title: 'Conclusao',
-        dataIndex: 'conclusao',
-        key: 'conclusao',
-        render: (conclusao) => 
-            <Tag type={conclusao}/>
+        title: 'Sitação',
+        dataIndex: 'situacao',
+        key: 'situacao',
+        render: (situacao) => 
+            <Tag type={situacao}/>
     },
 
 ]

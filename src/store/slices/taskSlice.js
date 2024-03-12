@@ -2,7 +2,7 @@ export const createTaskSlice = (set) => ({
     data: {},
     loading: false,
     error: false,
-    setTask: ({ data }) => 
+    setData: ({ data }) => 
         set((state) => (
             { task: {...state.task, data}}
         )),
