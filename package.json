@@ -11,7 +11,7 @@
 		"preview": "vite preview",
 		"prettier": "prettier --write \"src/**/*.js\"",
 		"prettier:check": "prettier --check \"src/**/*.js\"",
-		"prepare": "husky || true",
+		"prepare": "husky install",
 		"configure-husky": "npx husky install && npx husky add .husky/pre-commit \"npx --no-install lint-staged\"",
 		"test": "echo \"Error: no test specified\" && exit 1"
 	},
