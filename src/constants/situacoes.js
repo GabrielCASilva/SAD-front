@@ -1,14 +1,14 @@
 const SITUACAO_FUNCIONARIO = {
-    ATIVA: "Ativa",
-    INATIVA: "Inativa",
-    LICENCA: "Em licença",
-}
+	ATIVA: 'Ativa',
+	INATIVA: 'Inativa',
+	LICENCA: 'Em licença',
+};
 
 const SITUACAO_SERVICO = {
-    ATIVA: "Ativa",
-    INATIVA: "Inativa",
-    ANDAMENTO: "Em andamento",
-    CONCLUIDA: "Concluída"
-}
+	ATIVA: 'Ativa',
+	INATIVA: 'Inativa',
+	ANDAMENTO: 'Em andamento',
+	CONCLUIDA: 'Concluída',
+};
 
-export { SITUACAO_SERVICO, SITUACAO_FUNCIONARIO }
+export { SITUACAO_SERVICO, SITUACAO_FUNCIONARIO };

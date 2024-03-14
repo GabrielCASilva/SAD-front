@@ -1,42 +1,41 @@
-import { useEffect } from "react";
-import { useStore } from "../../store";
-import SectorService from "../../api/services/SectorService";
+import { useEffect } from 'react';
+import { useStore } from '../../store';
+import SectorService from '../../api/services/SectorService';
 
 export const useGetSectors = () => {
-    const { sectors } = useStore();
-    const { data, loading, error, setLoading, setError, setData } = sectors;
+	const { sectors } = useStore();
+	const { data, loading, error, setLoading, setError, setData } = sectors;
 
+	useEffect(() => {
+		const controller = new AbortController();
+		const signal = controller.signal;
 
-    useEffect(() => {
-        const controller = new AbortController();
-        const signal = controller.signal;
-        
-        const fetch = async () => {
-            try{
-                setLoading(true);
-                
-                const sectors = await SectorService.getSectors({signal});
+		const fetch = async () => {
+			try {
+				setLoading(true);
 
-                setData({ data: sectors });
-                setError(false);
-            } catch (error) {
-                setError(true);
-            } finally {
-                setLoading(false);
-            }
-        }
-    
-        fetch();
+				const sectors = await SectorService.getSectors({ signal });
 
-        return () => {
-            console.log("cancelando...");
-            controller.abort();
-        }
-    }, []);
+				setData({ data: sectors });
+				setError(false);
+			} catch (error) {
+				setError(true);
+			} finally {
+				setLoading(false);
+			}
+		};
 
-    return {
-        data, 
-        isLoading: loading,
-        isError: error
-    };
-}
+		fetch();
+
+		return () => {
+			console.log('cancelando...');
+			controller.abort();
+		};
+	}, []);
+
+	return {
+		data,
+		isLoading: loading,
+		isError: error,
+	};
+};

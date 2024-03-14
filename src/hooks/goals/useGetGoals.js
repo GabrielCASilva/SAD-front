@@ -1,42 +1,41 @@
-import { useEffect } from "react";
-import GoalService from "../../api/services/GoalService";
-import { useStore } from "../../store";
+import { useEffect } from 'react';
+import GoalService from '../../api/services/GoalService';
+import { useStore } from '../../store';
 
 export const useGetGoals = () => {
-    const { goals } = useStore();
-    const { data, loading, error, setLoading, setError, setData } = goals;
+	const { goals } = useStore();
+	const { data, loading, error, setLoading, setError, setData } = goals;
 
+	useEffect(() => {
+		const controller = new AbortController();
+		const signal = controller.signal;
 
-    useEffect(() => {
-        const controller = new AbortController();
-        const signal = controller.signal;
-        
-        const fetch = async () => {
-            try{
-                setLoading(true);
-                
-                const goals = await GoalService.getGoals({signal});
+		const fetch = async () => {
+			try {
+				setLoading(true);
 
-                setData({ data: goals });
-                setError(false);
-            } catch (error) {
-                setError(true);
-            } finally {
-                setLoading(false);
-            }
-        }
-    
-        fetch();
+				const goals = await GoalService.getGoals({ signal });
 
-        return () => {
-            console.log("cancelando...");
-            controller.abort();
-        }
-    }, []);
+				setData({ data: goals });
+				setError(false);
+			} catch (error) {
+				setError(true);
+			} finally {
+				setLoading(false);
+			}
+		};
 
-    return {
-        data, 
-        isLoading: loading,
-        isError: error
-    };
-}
+		fetch();
+
+		return () => {
+			console.log('cancelando...');
+			controller.abort();
+		};
+	}, []);
+
+	return {
+		data,
+		isLoading: loading,
+		isError: error,
+	};
+};

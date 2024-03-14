@@ -1,52 +1,52 @@
-import Service, { METHOD } from "../core"
+import Service, { METHOD } from '../core';
 
-const URL = "/tarefas"
+const URL = '/tarefas';
 
-export default class TaskService extends Service{
-    static async getTasks(props) {
-        const {signal = null, params } = props || {}
-         
-        const response = await this.call({
-            method: METHOD.GET,
-            url: URL,
-            signal,
-            params
-        })
-        
-        return response
-    }
+export default class TaskService extends Service {
+	static async getTasks(props) {
+		const { signal = null, params } = props || {};
 
-    static async getTask(props){
-        const {signal, id} = props
+		const response = await this.call({
+			method: METHOD.GET,
+			url: URL,
+			signal,
+			params,
+		});
 
-        const response = await this.call({
-            method: METHOD.GET,
-            url: `${URL}/${id}`,
-            signal: signal
-        })
+		return response;
+	}
 
-        return response
-    }
+	static async getTask(props) {
+		const { signal, id } = props;
 
-    static async postTask(props){
-        const {signal, data} = props
+		const response = await this.call({
+			method: METHOD.GET,
+			url: `${URL}/${id}`,
+			signal: signal,
+		});
 
-        await this.call({
-            method: METHOD.POST,
-            url: URL,
-            signal: signal,
-            data: data
-        })
-    }
+		return response;
+	}
 
-    static async updateTaks(props){
-        const {signal, data, id} = props
+	static async postTask(props) {
+		const { signal, data } = props;
 
-        await this.call({
-            method: METHOD.PATCH,
-            url: `${URL}/${id}`,
-            signal: signal,
-            data: data
-        })
-    }
+		await this.call({
+			method: METHOD.POST,
+			url: URL,
+			signal: signal,
+			data: data,
+		});
+	}
+
+	static async updateTaks(props) {
+		const { signal, data, id } = props;
+
+		await this.call({
+			method: METHOD.PATCH,
+			url: `${URL}/${id}`,
+			signal: signal,
+			data: data,
+		});
+	}
 }

@@ -1,96 +1,97 @@
-import { useEffect, useState } from "react";
-import EmployeeService from "../../api/services/EmployeeService";
-import { useStore } from "../../store";
-import TaskService from "../../api/services/TaskService";
+import { useEffect, useState } from 'react';
+import EmployeeService from '../../api/services/EmployeeService';
+import { useStore } from '../../store';
+import TaskService from '../../api/services/TaskService';
 
 export const useGetEmployee = (props) => {
-    const {id, params} = props;
-    
-    const { employee } = useStore();
-    const { data, loading, error, setLoading, setError, setData } = employee;
+	const { id, params } = props;
 
-    useEffect(() => {
-        const controller = new AbortController();
-        const signal = controller.signal;
-        
-        const fetch = async () => {
-            try{
-                setLoading(true);
-                
-                const employee = await EmployeeService.getEmployee({signal, id, params});
+	const { employee } = useStore();
+	const { data, loading, error, setLoading, setError, setData } = employee;
 
-                setData({data: employee});
-                setError(false);
-            } catch (error) {
-                setError(true);
-            } finally {
-                setLoading(false);
-            }
-        }
-    
-        fetch();
+	useEffect(() => {
+		const controller = new AbortController();
+		const signal = controller.signal;
 
-        return () => {
-            console.log("cancelando...");
-            controller.abort();
-        }
-    }, []);
+		const fetch = async () => {
+			try {
+				setLoading(true);
 
-    return {
-        data, 
-        isLoading: loading,
-        isError: error
-    };
-}
+				const employee = await EmployeeService.getEmployee({
+					signal,
+					id,
+					params,
+				});
+
+				setData({ data: employee });
+				setError(false);
+			} catch (error) {
+				setError(true);
+			} finally {
+				setLoading(false);
+			}
+		};
+
+		fetch();
+
+		return () => {
+			console.log('cancelando...');
+			controller.abort();
+		};
+	}, []);
+
+	return {
+		data,
+		isLoading: loading,
+		isError: error,
+	};
+};
 
 export const useGetEmployeeAndEmployeesTasks = (props) => {
-    const { id } = props;
-    
-    const { employee } = useStore();
-    const { data, loading, error, setLoading, setError, setEmployee } = employee;
-    
-    useEffect(() => {
-        const controller = new AbortController();
-        const signal = controller.signal;
-        
-        const fetch = async () => {
-            try {
-                setLoading(true);
-                
-                const employee = await EmployeeService.getEmployee({signal, id});
+	const { id } = props;
 
-                const tasks = await TaskService.getTasks({signal});
+	const { employee } = useStore();
+	const { data, loading, error, setLoading, setError, setEmployee } = employee;
 
-                const employeeTasks = tasks.filter((task) => {
-                    if(employee?.cargo?.nome === "Servidor"){
-                        return task.funcionarioAlocadoId === employee.id;
-                    }
-                    return [];
-                })
+	useEffect(() => {
+		const controller = new AbortController();
+		const signal = controller.signal;
 
-                setEmployee({data: {...employee, tarefas: employeeTasks}});
-                setError(false);
+		const fetch = async () => {
+			try {
+				setLoading(true);
 
-            } catch (error) {
-                setError(false);
+				const employee = await EmployeeService.getEmployee({ signal, id });
 
-            } finally {
-                setLoading(false);
-            }
-        }
+				const tasks = await TaskService.getTasks({ signal });
 
-        fetch();
+				const employeeTasks = tasks.filter((task) => {
+					if (employee?.cargo?.nome === 'Servidor') {
+						return task.funcionarioAlocadoId === employee.id;
+					}
+					return [];
+				});
 
-        return () => {
-            console.log("cancelando...");
-            controller.abort();
-        }
-    }, []);
+				setEmployee({ data: { ...employee, tarefas: employeeTasks } });
+				setError(false);
+			} catch (error) {
+				setError(false);
+			} finally {
+				setLoading(false);
+			}
+		};
 
-    return {
-        data, 
-        isLoading: loading,
-        isError: error
-    };
+		fetch();
 
-}
+		return () => {
+			console.log('cancelando...');
+			controller.abort();
+		};
+	}, []);
+
+	return {
+		data,
+		isLoading: loading,
+		isError: error,
+	};
+};
