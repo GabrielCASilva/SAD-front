@@ -1,52 +1,51 @@
-.card{
-  border: .1rem solid var(--white-gray);
-  border-radius: .7rem;
+.card {
+	border: 0.1rem solid var(--white-gray);
+	border-radius: 0.7rem;
 }
 
-.ant-card-head{
-  border-color: var(--white-gray) !important;
+.ant-card-head {
+	border-color: var(--white-gray) !important;
 }
 
-.ant-tabs-nav::before{
-  position: inherit !important;
-  border: none !important;
+.ant-tabs-nav::before {
+	position: inherit !important;
+	border: none !important;
 }
 
-.ant-tabs-tab{
-  font-weight: 600;
-  color: var(--white-gray) !important;
+.ant-tabs-tab {
+	font-weight: 600;
+	color: var(--white-gray) !important;
 }
 
-.ant-tabs-tab-active .ant-tabs-tab-btn{
-  color: var(--dark-green) !important;
+.ant-tabs-tab-active .ant-tabs-tab-btn {
+	color: var(--dark-green) !important;
 }
 
-.ant-tabs-ink-bar{
-  background-color: var(--dark-green) !important;
+.ant-tabs-ink-bar {
+	background-color: var(--dark-green) !important;
 }
 
-.p-none > .ant-card-body{
-  padding: 0 !important;
-  height: calc(100% - 4.5rem);
-  overflow: auto;
+.p-none > .ant-card-body {
+	padding: 0 !important;
+	height: calc(100% - 4.5rem);
+	overflow: auto;
 }
 
-.p-none-m > .ant-card-body{
-  padding: 0 !important;
-  height: 100%;
-  overflow: auto;
+.p-none-m > .ant-card-body {
+	padding: 0 !important;
+	height: 100%;
+	overflow: auto;
 }
-
 
 /* border color */
-.card-border-color--green{
-  border-color: var(--dark-green);
+.card-border-color--green {
+	border-color: var(--dark-green);
 }
 
-.card-border-color--yellow{
-  border-color: var(--yellow);
+.card-border-color--yellow {
+	border-color: var(--yellow);
 }
 
-.card-border-color-gray{
-  border-color: var(--white-gray);
+.card-border-color-gray {
+	border-color: var(--white-gray);
 }

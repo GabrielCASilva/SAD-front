@@ -48,11 +48,11 @@
 		}
 	},
 	"lint-staged": {
-		".{js,ts}": [
-			"npx prettier --write"
+		".{js,ts, jsx}": [
+			"prettier --write ."
 		],
 		"*.{html,css,less,md,json}": [
-			"npx prettier --write"
+			"prettier --write ."
 		]
 	}
 }

@@ -1,196 +1,196 @@
-:root{
-  --dark-green: #006e25;
-  --yellow: #ffbc39;
-  --white: #ffffff;
-  
-  --background-gray: #f5f5f5;
-  --text-dark-gray: #292929;
-  --mid-gray: #919191;
-  --white-gray: #c4c4c4;
+:root {
+	--dark-green: #006e25;
+	--yellow: #ffbc39;
+	--white: #ffffff;
 
-  --sb-max-width: 23.6rem;
+	--background-gray: #f5f5f5;
+	--text-dark-gray: #292929;
+	--mid-gray: #919191;
+	--white-gray: #c4c4c4;
 
-  --base-rem: 1rem;
-  --base-1-4rem: 1.4rem;
-  --base-2-4rem: 2.4rem;
-  --base-3-2rem: 3.2rem;
+	--sb-max-width: 23.6rem;
+
+	--base-rem: 1rem;
+	--base-1-4rem: 1.4rem;
+	--base-2-4rem: 2.4rem;
+	--base-3-2rem: 3.2rem;
 }
 
 * {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	box-sizing: border-box;
 }
 
 html {
-  font-family: 'Roboto', sans-serif;
-  color: var(--text-dark-gray);
-  font-size: 62.5%;
+	font-family: 'Roboto', sans-serif;
+	color: var(--text-dark-gray);
+	font-size: 62.5%;
 }
 
-body{
-  font-size: 1.6rem;
-  background-color: var(--background-gray);
+body {
+	font-size: 1.6rem;
+	background-color: var(--background-gray);
 }
 
 ul {
-  list-style-type: none;
+	list-style-type: none;
 }
 
 /* [ANTD-MODS] */
-.ant-border-color *{
-  border-color: var(--white-gray) !important;
+.ant-border-color * {
+	border-color: var(--white-gray) !important;
 }
 
 /* [WITDH] */
-.w-100{
-  width: 100%;
+.w-100 {
+	width: 100%;
 }
 
-.w-fit-content{
-  width: fit-content;
+.w-fit-content {
+	width: fit-content;
 }
 
-.w-max-fit-content{
-  width: fit-content;
+.w-max-fit-content {
+	width: fit-content;
 }
 
 /* [HEIGHT] */
-.h-100{
-  height: 100%;
+.h-100 {
+	height: 100%;
 }
 
-.min-h-0{
-  min-height: 0;
+.min-h-0 {
+	min-height: 0;
 }
 
 /* [CONTAINERS] */
-.container{
-  padding: 0 2.4rem;
+.container {
+	padding: 0 2.4rem;
 }
 
-.container-top-bottom{
-  padding-top: 2.4rem;
-  padding-bottom: 2.4rem;
+.container-top-bottom {
+	padding-top: 2.4rem;
+	padding-bottom: 2.4rem;
 }
 
-.block{
-  display: block;
+.block {
+	display: block;
 }
 
 /* [FLEXBOX] */
-.flex{
-  display: flex;
+.flex {
+	display: flex;
 }
 
-.align-center{
-  align-items: center;
+.align-center {
+	align-items: center;
 }
 
-.justify-center{
-  justify-content: center;
+.justify-center {
+	justify-content: center;
 }
 
-.justify-between{
-  justify-content: space-between;
+.justify-between {
+	justify-content: space-between;
 }
 
-.row{
-  flex-direction: row;
+.row {
+	flex-direction: row;
 }
 
-.column{
-  flex-direction: column;
+.column {
+	flex-direction: column;
 }
 
-.gap-14{
-  gap: 1.4rem;
+.gap-14 {
+	gap: 1.4rem;
 }
 
-.gap-24{
-  gap: 2.4rem;
+.gap-24 {
+	gap: 2.4rem;
 }
 
-.gap-48{
-  gap: 4.8rem;
+.gap-48 {
+	gap: 4.8rem;
 }
 
 /* [FONTS] */
 /* fonts - weights */
-.b-500{
-  font-weight: 500;
+.b-500 {
+	font-weight: 500;
 }
 
-.b-600{
-  font-weight: 600;
+.b-600 {
+	font-weight: 600;
 }
 
-.b-700{
-  font-weight: 700;
+.b-700 {
+	font-weight: 700;
 }
 
 /* fonts - sizes */
-.f-size-14{
-  font-size: 1.4rem;
+.f-size-14 {
+	font-size: 1.4rem;
 }
 
-.f-size-16{
-  font-size: 1.6rem;
+.f-size-16 {
+	font-size: 1.6rem;
 }
 
-.f-size-18{
-  font-size: 1.4rem;
+.f-size-18 {
+	font-size: 1.4rem;
 }
 
-.f-size-20{
-  font-size: 2rem;
+.f-size-20 {
+	font-size: 2rem;
 }
 
-.f-size-24{
-  font-size: 2.4rem;
+.f-size-24 {
+	font-size: 2.4rem;
 }
 
 /* [PADDINGS] */
 /* zero paddings */
-.p-zero{
-  padding: 0;
+.p-zero {
+	padding: 0;
 }
 
-.p-right-zero{
-  padding-right: 0;
+.p-right-zero {
+	padding-right: 0;
 }
 
-.p-left-zero{
-  padding-left: 0;
+.p-left-zero {
+	padding-left: 0;
 }
 
-.p-top-zero{
-  padding-top: 0;
+.p-top-zero {
+	padding-top: 0;
 }
 
-.p-bottom-zero{
-  padding-bottom: 0;
+.p-bottom-zero {
+	padding-bottom: 0;
 }
 
 /* [MARGINS] */
 /* zero margins */
-.m-zero{
-  margin: 0;
+.m-zero {
+	margin: 0;
 }
 
-.m-right-zero{
-  margin-right: 0;
+.m-right-zero {
+	margin-right: 0;
 }
 
-.m-left-zero{
-  margin-left: 0;
+.m-left-zero {
+	margin-left: 0;
 }
 
-.m-top-zero{
-  margin-top: 0;
+.m-top-zero {
+	margin-top: 0;
 }
 
-.m-bottom-zero{
-  margin-bottom: 0;
+.m-bottom-zero {
+	margin-bottom: 0;
 }

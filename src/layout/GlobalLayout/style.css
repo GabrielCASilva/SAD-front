@@ -1,11 +1,11 @@
-.page-container{
-    height: 100vh;
-    display: grid;
-    grid-template-rows: 11.1rem calc(100vh - 13.5rem);
+.page-container {
+	height: 100vh;
+	display: grid;
+	grid-template-rows: 11.1rem calc(100vh - 13.5rem);
 }
 
-.outlet-container{
-    max-width: 1920px;
-    width: 100%;
-    height: 100%;
+.outlet-container {
+	max-width: 1920px;
+	width: 100%;
+	height: 100%;
 }

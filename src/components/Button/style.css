@@ -1,61 +1,57 @@
-.button{
-    font-size: var(--base-1-4rem);
-    padding: 1rem;
-    height: fit-content;
-    border-radius: .7rem;
-    width: 100%;
-    font-weight: 600;
-    line-height: var(--base-1-4rem);
+.button {
+	font-size: var(--base-1-4rem);
+	padding: 1rem;
+	height: fit-content;
+	border-radius: 0.7rem;
+	width: 100%;
+	font-weight: 600;
+	line-height: var(--base-1-4rem);
 }
 
-
-.button-yellow{
-    background-color: var(--yellow);
-    color: var(--white);
-    border: none;
+.button-yellow {
+	background-color: var(--yellow);
+	color: var(--white);
+	border: none;
 }
 
-.button-yellow:hover{
-    background-color: var(--yellow) !important;
-    color: var(--white) !important;
-    border: none;
+.button-yellow:hover {
+	background-color: var(--yellow) !important;
+	color: var(--white) !important;
+	border: none;
 }
 
-
-.button-white{
-    background-color: var(--white);
-    border: .1rem solid var(--dark-green);
-    color: var(--dark-green);
+.button-white {
+	background-color: var(--white);
+	border: 0.1rem solid var(--dark-green);
+	color: var(--dark-green);
 }
 
-.button-white:hover{
-    background-color: var(--white) !important;
-    border: .1rem solid var(--dark-green) !important;
-    color: var(--dark-green) !important;
+.button-white:hover {
+	background-color: var(--white) !important;
+	border: 0.1rem solid var(--dark-green) !important;
+	color: var(--dark-green) !important;
 }
 
-
-.button-gray{
-    background-color: var(--white-gray);
-    color: var(--white);
-    border: none;
+.button-gray {
+	background-color: var(--white-gray);
+	color: var(--white);
+	border: none;
 }
 
-.button-gray:hover{
-    background-color: var(--white-gray) !important;
-    color: var(--white) !important;
-    border: none;
+.button-gray:hover {
+	background-color: var(--white-gray) !important;
+	color: var(--white) !important;
+	border: none;
 }
 
-
-.button-green{
-    background-color: var(--dark-green);
-    color: var(--white);
-    border: none;
+.button-green {
+	background-color: var(--dark-green);
+	color: var(--white);
+	border: none;
 }
 
-.button-green:hover{
-    background-color: var(--dark-green) !important;
-    color: var(--white) !important;
-    border: none;
+.button-green:hover {
+	background-color: var(--dark-green) !important;
+	color: var(--white) !important;
+	border: none;
 }

@@ -1,7 +1,7 @@
-.ant-tag{
-    font-weight: 500;
+.ant-tag {
+	font-weight: 500;
 }
 
-.ant-tag.white{
-    color: var(--white) !important;
+.ant-tag.white {
+	color: var(--white) !important;
 }
