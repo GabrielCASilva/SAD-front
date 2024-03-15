@@ -7,7 +7,7 @@ import { Title } from '../../components/Titles';
 import { Input, Select } from 'antd';
 import './style.css';
 import { useStore } from '../../store';
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 
 const { Search } = Input;
 
@@ -15,7 +15,7 @@ const TABLES = {
 	employees: <EmployeesTable />,
 	tasks: <TasksTable />,
 	goals: <GoalsTable />,
-	sector: <SectorTable />,
+	sectors: <SectorTable />,
 };
 
 export default function PageLayout(props) {
@@ -28,11 +28,17 @@ export default function PageLayout(props) {
 	} = props;
 
 	const store = useStore();
-	const data = store[role].dataRef.length > 0 ? store[role] : undefined;
+
 	const [search, setSearch] = useState('');
 	const [modify, setModfy] = useState(0);
-	const [selectedRole, setSelectedRole] = useState(null);
-	const [selectedOrder, setSelectedOrder] = useState(null);
+	const [selectedRole, setSelectedRole] = useState('Cargo: Todos');
+	const [selectedOrder, setSelectedOrder] = useState('Ordernar por: Id');
+
+	const data = useMemo(() => {
+		return !store[role].loading && store[role]?.dataRef?.length > 0
+			? store[role]
+			: [];
+	}, [store]);
 
 	const onSearchChance = (e) => {
 		setModfy(1);
@@ -52,7 +58,7 @@ export default function PageLayout(props) {
 
 	const onOrderChange = (e) => {
 		setSelectedOrder(`Ordernar por: ${e}`);
-		const dataSorted = [...data.dataRef].sort(dynamicSort(e));
+		const dataSorted = [...data.dataRef]?.sort(dynamicSort(e));
 
 		data?.setData({ data: dataSorted });
 	};

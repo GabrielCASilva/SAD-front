@@ -23,7 +23,7 @@ export default function Sector() {
 	return (
 		<PageLayout
 			title="Setor"
-			role="sector"
+			role="sectors"
 			buttonTitle="Cadastrar Setor"
 			orderOptions={ORDER_OPTIONS}
 		/>
