@@ -1,11 +1,31 @@
-import PageLayout from "../../layout/PageLayout";
+import PageLayout from '../../layout/PageLayout';
 
-export default function Sector(){
-    return (
-        <PageLayout 
-            title="Setor"
-            role="sector"
-            buttonTitle="Cadastrar Setor"
-        />
-    )
+const ORDER_OPTIONS = [
+	{
+		value: 'id',
+		label: 'Id',
+	},
+	{
+		value: 'ramal',
+		label: 'Ramal',
+	},
+	{
+		value: 'nome',
+		label: 'Nome',
+	},
+	{
+		value: 'supervisor',
+		label: 'Supervisor',
+	},
+];
+
+export default function Sector() {
+	return (
+		<PageLayout
+			title="Setor"
+			role="sector"
+			buttonTitle="Cadastrar Setor"
+			orderOptions={ORDER_OPTIONS}
+		/>
+	);
 }

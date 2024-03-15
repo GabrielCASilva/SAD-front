@@ -30,8 +30,12 @@ export default function PageLayout(props) {
 	const store = useStore();
 	const data = store[role].dataRef.length > 0 ? store[role] : undefined;
 	const [search, setSearch] = useState('');
+	const [modify, setModfy] = useState(0);
+	const [selectedRole, setSelectedRole] = useState(null);
+	const [selectedOrder, setSelectedOrder] = useState(null);
 
 	const onSearchChance = (e) => {
+		setModfy(1);
 		setSearch(e.target.value);
 	};
 
@@ -46,24 +50,34 @@ export default function PageLayout(props) {
 		data?.filterData({ data: dataFiltered });
 	};
 
-	// TODO: FAZER O FILTRO POR ORDER E POR ROLE
 	const onOrderChange = (e) => {
-		console.log(e);
+		setSelectedOrder(`Ordernar por: ${e}`);
+		const dataSorted = [...data.dataRef].sort(dynamicSort(e));
+
+		data?.setData({ data: dataSorted });
 	};
 
 	const onRoleChange = (e) => {
-		console.log(e);
+		setSelectedRole(`Cargo: ${e}`);
+		const dataFiltered = data?.dataRef.filter((item) => {
+			if (e === 'todos') return item;
+			const lower = item.cargo.nome.toLowerCase();
+			return lower.includes(e.toLowerCase());
+		});
+
+		data?.filterData({ data: dataFiltered });
 	};
+
+	useEffect(() => {
+		if (!search && modify && data?.data !== data?.dataRef) {
+			data?.filterData({ data: data?.dataRef });
+			setModfy(0);
+		}
+	}, [search, data, modify]);
 
 	if (data && data?.loading) {
 		return <Title>Carregando...</Title>;
 	}
-
-	useEffect(() => {
-		if (!search && data?.data !== data?.dataRef) {
-			data?.filterData({ data: data?.dataRef });
-		}
-	}, [search, data]);
 
 	return (
 		<>
@@ -86,12 +100,14 @@ export default function PageLayout(props) {
 				</div>
 				<div className="flex gap-24 ant-border-color">
 					<Select
+						value={selectedOrder}
 						options={orderOptions}
 						onChange={onOrderChange}
 						placeholder="Ordenação"
 					/>
 					{role === 'employees' && (
 						<Select
+							value={selectedRole}
 							options={roleOptions}
 							onChange={onRoleChange}
 							placeholder="Cargo"
@@ -102,4 +118,17 @@ export default function PageLayout(props) {
 			</div>
 		</>
 	);
+}
+
+function dynamicSort(property) {
+	let sortOrder = 1;
+	if (property[0] === '-') {
+		sortOrder = -1;
+		property = property.substr(1);
+	}
+	return function (a, b) {
+		let result =
+			a[property] < b[property] ? -1 : a[property] > b[property] ? 1 : 0;
+		return result * sortOrder;
+	};
 }

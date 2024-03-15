@@ -6,13 +6,13 @@
 	"scripts": {
 		"dev": "vite",
 		"build": "vite build",
+		"configure-husky": "npx husky install && npx husky add .husky/pre-commit \"npx --no-install lint-staged\"",
 		"lint": "eslint --ext .js src",
 		"lint:fix": "eslint --fix --ext .js src",
 		"preview": "vite preview",
 		"prettier": "prettier --write \"src/**/*.js\"",
 		"prettier:check": "prettier --check \"src/**/*.js\"",
 		"prepare": "husky install",
-		"configure-husky": "npx husky install && npx husky add .husky/pre-commit \"npx --no-install lint-staged\"",
 		"test": "echo \"Error: no test specified\" && exit 1"
 	},
 	"dependencies": {
