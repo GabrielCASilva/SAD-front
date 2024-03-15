@@ -6,14 +6,12 @@ import { SimpleCard } from '../../components/Card';
 import DetailLayout from '../../layout/DetailLayout';
 import { pastYears } from '../../utils/date';
 
-//TODO: PREENCHER OS DADOS
 export default function EmployeeDetail() {
 	const { id } = useParams();
 	const { data: employee, isLoading } = useGetEmployeeAndEmployeesTasks({
 		id,
 	});
 	const { nome, foto, setor, tarefas, cargo, dataCadastro } = employee;
-	console.log(employee);
 
 	const title = (
 		<>

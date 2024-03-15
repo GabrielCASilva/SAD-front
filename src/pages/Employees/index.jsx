@@ -1,27 +1,5 @@
+import { EMPLOYEES_OPTIONS } from '../../constants/ordering';
 import PageLayout from '../../layout/PageLayout';
-
-const ORDER_OPTIONS = [
-	{
-		value: 'id',
-		label: 'id',
-	},
-	{
-		value: 'nome',
-		label: 'Nome',
-	},
-	{
-		value: 'email',
-		label: 'Email',
-	},
-	{
-		value: 'cargo',
-		label: 'Cargo',
-	},
-	{
-		value: 'setor',
-		label: 'Setor',
-	},
-];
 
 const ROLE_OPTIONS = [
 	{
@@ -44,7 +22,7 @@ export default function Employees() {
 			title="Funcionários"
 			role="employees"
 			buttonTitle="Cadastrar funcionário"
-			orderOptions={ORDER_OPTIONS}
+			orderOptions={EMPLOYEES_OPTIONS}
 			roleOptions={ROLE_OPTIONS}
 		/>
 	);

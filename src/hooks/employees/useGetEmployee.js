@@ -62,13 +62,12 @@ export const useGetEmployeeAndEmployeesTasks = (props) => {
 				setLoading(true);
 
 				const employee = await EmployeeService.getEmployee({ signal, id });
-				console.log(employee);
 
 				const tasks = await TaskService.getTasks({ signal });
 
 				const employeeTasks = tasks.filter((task) => {
 					if (employee?.cargo?.nome === 'Servidor') {
-						return task.funcionarioAlocadoId === employee.id;
+						return task.funcionarioAlocado.id === employee.id;
 					}
 					return [];
 				});

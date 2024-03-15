@@ -1,27 +1,5 @@
+import { TASKS_OPTIONS } from '../../constants/ordering';
 import PageLayout from '../../layout/PageLayout';
-
-const ORDER_OPTIONS = [
-	{
-		value: 'id',
-		label: 'Id',
-	},
-	{
-		value: 'nome',
-		label: 'Título',
-	},
-	{
-		value: 'setor',
-		label: 'Setor',
-	},
-	{
-		value: 'servidor',
-		label: 'Servidor',
-	},
-	{
-		value: 'situacao',
-		label: 'Situação',
-	},
-];
 
 export default function Tasks() {
 	return (
@@ -29,7 +7,7 @@ export default function Tasks() {
 			title="Tarefas"
 			role="tasks"
 			buttonTitle="Cadastrar Tarefa"
-			orderOptions={ORDER_OPTIONS}
+			orderOptions={TASKS_OPTIONS}
 		/>
 	);
 }

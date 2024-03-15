@@ -1,23 +1,5 @@
+import { GOALS_OPTIONS } from '../../constants/ordering';
 import PageLayout from '../../layout/PageLayout';
-
-const ORDER_OPTIONS = [
-	{
-		value: 'id',
-		label: 'Id',
-	},
-	{
-		value: 'nome',
-		label: 'Título',
-	},
-	{
-		value: 'responsavel',
-		label: 'Autor',
-	},
-	{
-		value: 'setor',
-		label: 'Setor',
-	},
-];
 
 export default function Goals() {
 	return (
@@ -25,7 +7,7 @@ export default function Goals() {
 			title="Metas"
 			role="goals"
 			buttonTitle="Cadastrar Meta"
-			orderOptions={ORDER_OPTIONS}
+			orderOptions={GOALS_OPTIONS}
 		/>
 	);
 }

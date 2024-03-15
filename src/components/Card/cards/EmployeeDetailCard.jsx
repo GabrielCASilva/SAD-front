@@ -2,9 +2,10 @@ import { Input, Select } from 'antd';
 import Card, { CardRow, SimpleCard, TabContainer } from '..';
 import Button from '../../Button';
 import { SubTitle } from '../../Titles';
-import TasksStateTable from '../../Table/tables/TasksStateTable';
 import ProgressBar from '../../ProgressBar';
 import { useStore } from '../../../store';
+import FilteredTableInDescriptionCard from '../../Table/tablesWithFilters/FilteredTableInDescriptionCard';
+import { TASKS_STATE_OPTIONS } from '../../../constants/ordering';
 
 const { Search } = Input;
 
@@ -48,7 +49,6 @@ function EmployeesCurrentTask() {
 
 	const currentTask =
 		tarefas.find((tarefa) => tarefa.dataInicio && !tarefa.dataConclusao) || {};
-	console.log(currentTask);
 
 	return (
 		<>
@@ -93,16 +93,10 @@ function AllEmployeesTasks() {
 	const { data } = employee;
 
 	return (
-		<>
-			<SubTitle>Todas as tarefas</SubTitle>
-			<div className="flex column gap-24 ant-border-color">
-				<div className="w-fit-content">
-					<Select placeholder="Ordenação" />
-				</div>
-				<Search />
-				<TasksStateTable data={data.tarefas} />
-			</div>
-		</>
+		<FilteredTableInDescriptionCard
+			data={data.tarefas}
+			orderingOptions={TASKS_STATE_OPTIONS}
+		/>
 	);
 }
 

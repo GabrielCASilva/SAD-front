@@ -4,6 +4,7 @@ import GoalsProgressModal from '../../components/Modal/modals/GoalsProgressModal
 import { SubTitle } from '../../components/Titles';
 import DetailLayout from '../../layout/DetailLayout';
 
+//TODO: PREENCHER OS DADOS
 export default function GoalDetail() {
 	const title = (
 		<>
