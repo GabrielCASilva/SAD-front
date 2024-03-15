@@ -49,10 +49,10 @@
 	},
 	"lint-staged": {
 		".{js,ts}": [
-			"prettier --write"
+			"npx prettier --write"
 		],
 		"*.{html,css,less,md,json}": [
-			"prettier --write"
+			"npx prettier --write"
 		]
 	}
 }
