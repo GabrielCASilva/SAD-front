@@ -51,7 +51,7 @@ export const useGetEmployeeAndEmployeesTasks = (props) => {
 	const { id } = props;
 
 	const { employee } = useStore();
-	const { data, loading, error, setLoading, setError, setEmployee } = employee;
+	const { data, loading, error, setLoading, setError, setData } = employee;
 
 	useEffect(() => {
 		const controller = new AbortController();
@@ -62,6 +62,7 @@ export const useGetEmployeeAndEmployeesTasks = (props) => {
 				setLoading(true);
 
 				const employee = await EmployeeService.getEmployee({ signal, id });
+				console.log(employee);
 
 				const tasks = await TaskService.getTasks({ signal });
 
@@ -72,7 +73,7 @@ export const useGetEmployeeAndEmployeesTasks = (props) => {
 					return [];
 				});
 
-				setEmployee({ data: { ...employee, tarefas: employeeTasks } });
+				setData({ data: { ...employee, tarefas: employeeTasks } });
 				setError(false);
 			} catch (error) {
 				setError(false);
