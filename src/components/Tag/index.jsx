@@ -9,11 +9,11 @@ const TAGS = {
 	},
 	ATIVA: {
 		color: 'var(--background-gray)',
-		menssage: 'Pendente',
+		menssage: 'Ativa',
 	},
 	ANDAMENTO: {
 		color: 'var(--yellow)',
-		menssage: 'Incompleta',
+		menssage: 'Em andamento',
 		textColor: 'white',
 	},
 	INATIVA: {

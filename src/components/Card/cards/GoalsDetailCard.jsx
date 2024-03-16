@@ -1,6 +1,6 @@
 import { CardContainer, CardWithoutTabs } from '..';
 
-import { TASKS_STATE_OPTIONS } from '../../../constants/ordering';
+import { TASKS_STATE_OPTIONS } from '../../../constants/options';
 import { useStore } from '../../../store';
 import FilteredTableInDescriptionCard from '../../Table/tablesWithFilters/FilteredTableInDescriptionCard';
 

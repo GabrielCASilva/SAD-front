@@ -1,4 +1,4 @@
-import { SECTOR_OPTIONS } from '../../constants/ordering';
+import { SECTOR_OPTIONS } from '../../constants/options';
 import PageLayout from '../../layout/PageLayout';
 
 export default function Sector() {

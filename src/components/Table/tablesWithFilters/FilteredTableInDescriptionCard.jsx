@@ -2,15 +2,31 @@ import { useEffect, useState } from 'react';
 import { SubTitle } from '../../Titles';
 import TasksStateTable from '../tables/TasksStateTable';
 import { Input, Select } from 'antd';
+import {
+	SITUATION_TASKS_OPTIONS,
+	TASKS_STATE_OPTIONS,
+} from '../../../constants/options';
+import { SITUACAO_SERVICO } from '../../../constants/situacoes';
 const { Search } = Input;
 
 export default function FilteredTableInDescriptionCard(props) {
-	const { data, orderingOptions = [], subTitle = 'Todas as tarefas' } = props;
+	const {
+		data,
+		orderingOptions = TASKS_STATE_OPTIONS,
+		subTitle = 'Todas as tarefas',
+		hasFilterBySituation = false,
+		situationOptions = SITUATION_TASKS_OPTIONS,
+		existentsSituations = SITUACAO_SERVICO,
+	} = props;
 
 	const [tableData, setTableData] = useState([]);
 	const [search, setSearch] = useState('');
 	const [isSearching, setIsSearching] = useState(false);
-	const [selectedOrdering, setselectedOrdering] = useState('Ordernar por: Id');
+
+	const [selectedOrdering, setSelectedOrdering] = useState('Ordernar por: Id');
+	const [selectedSituation, setSelectedSituation] = useState(
+		'Mostrar tarefas: Todas',
+	);
 
 	const onSearchChange = (e) => {
 		setIsSearching(true);
@@ -29,11 +45,23 @@ export default function FilteredTableInDescriptionCard(props) {
 	};
 
 	const onOrderingChange = (e) => {
-		setselectedOrdering(`Ordernar por: ${e}`);
+		setSelectedOrdering(`Ordernar por: ${e}`);
 
 		const dataSorted = [...data]?.sort(dynamicSort(e));
 
 		setTableData(dataSorted);
+	};
+
+	const onSituationChange = (e) => {
+		setSelectedSituation(`Mostrar tarefas: ${existentsSituations[e]}`);
+
+		const dataFiltered = data?.filter((item) => {
+			if (e === 'TODAS') return item;
+
+			return item.situacao === e;
+		});
+
+		setTableData(dataFiltered);
 	};
 
 	useEffect(() => {
@@ -48,13 +76,26 @@ export default function FilteredTableInDescriptionCard(props) {
 		<>
 			<SubTitle>{subTitle}</SubTitle>
 			<div className="flex column gap-24 ant-border-color">
-				<div className="w-fit-content">
-					<Select
-						value={selectedOrdering}
-						options={orderingOptions}
-						onChange={onOrderingChange}
-						placeholder="Ordenação"
-					/>
+				<div className="flex gap-24">
+					<div className="w-fit-content">
+						<Select
+							value={selectedOrdering}
+							options={orderingOptions}
+							onChange={onOrderingChange}
+							placeholder="Ordenação"
+						/>
+					</div>
+
+					{hasFilterBySituation && (
+						<div className="w-fit-content">
+							<Select
+								placeholder="Situação"
+								value={selectedSituation}
+								options={situationOptions}
+								onChange={onSituationChange}
+							/>
+						</div>
+					)}
 				</div>
 				<Search onChange={onSearchChange} onSearch={onSearchClick} />
 				<TasksStateTable data={_data} />

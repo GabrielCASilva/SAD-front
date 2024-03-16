@@ -5,7 +5,15 @@ const SITUACAO_FUNCIONARIO = {
 };
 
 const SITUACAO_SERVICO = {
+	TODAS: 'Todas',
 	ATIVA: 'Ativa',
+	INATIVA: 'Inativa',
+	ANDAMENTO: 'Em andamento',
+	CONCLUIDA: 'Concluída',
+};
+
+const SITUACAO_PARCIAL_SERVICO = {
+	TODAS: 'Todas',
 	INATIVA: 'Inativa',
 	ANDAMENTO: 'Em andamento',
 	CONCLUIDA: 'Concluída',
@@ -17,4 +25,9 @@ const CATEGORIA_AVALIACAO = {
 	EXECUTOR: 'Executor',
 };
 
-export { SITUACAO_SERVICO, SITUACAO_FUNCIONARIO, CATEGORIA_AVALIACAO };
+export {
+	SITUACAO_SERVICO,
+	SITUACAO_PARCIAL_SERVICO,
+	SITUACAO_FUNCIONARIO,
+	CATEGORIA_AVALIACAO,
+};

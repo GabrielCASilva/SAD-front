@@ -1,4 +1,4 @@
-import { TASKS_OPTIONS } from '../../constants/ordering';
+import { TASKS_OPTIONS } from '../../constants/options';
 import PageLayout from '../../layout/PageLayout';
 
 export default function Tasks() {

@@ -5,7 +5,7 @@ import { SubTitle } from '../../Titles';
 import ProgressBar from '../../ProgressBar';
 import { useStore } from '../../../store';
 import FilteredTableInDescriptionCard from '../../Table/tablesWithFilters/FilteredTableInDescriptionCard';
-import { TASKS_STATE_OPTIONS } from '../../../constants/ordering';
+import { TASKS_STATE_OPTIONS } from '../../../constants/options';
 
 const { Search } = Input;
 

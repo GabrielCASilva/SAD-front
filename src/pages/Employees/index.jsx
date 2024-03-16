@@ -1,4 +1,4 @@
-import { EMPLOYEES_OPTIONS } from '../../constants/ordering';
+import { EMPLOYEES_OPTIONS } from '../../constants/options';
 import PageLayout from '../../layout/PageLayout';
 
 const ROLE_OPTIONS = [

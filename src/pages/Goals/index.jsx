@@ -1,4 +1,4 @@
-import { GOALS_OPTIONS } from '../../constants/ordering';
+import { GOALS_OPTIONS } from '../../constants/options';
 import PageLayout from '../../layout/PageLayout';
 
 export default function Goals() {

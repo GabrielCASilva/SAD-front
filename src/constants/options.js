@@ -104,3 +104,45 @@ export const SECTOR_OPTIONS = [
 		label: 'Supervisor',
 	},
 ];
+
+export const SITUATION_TASKS_OPTIONS = [
+	{
+		value: 'TODAS',
+		label: 'Todas',
+	},
+	{
+		value: 'ATIVA',
+		label: 'Ativa',
+	},
+	{
+		value: 'INATIVA',
+		label: 'Inativa',
+	},
+	{
+		value: 'ANDAMENTO',
+		label: 'Em andamento',
+	},
+	{
+		value: 'CONCLUIDA',
+		label: 'Concluída',
+	},
+];
+
+export const SITUATION_PARTIAL_TASKS_OPTIONS = [
+	{
+		value: 'TODAS',
+		label: 'Todas',
+	},
+	{
+		value: 'ATIVA',
+		label: 'Ativa',
+	},
+	{
+		value: 'ANDAMENTO',
+		label: 'Em andamento',
+	},
+	{
+		value: 'CONCLUIDA',
+		label: 'Concluída',
+	},
+];
