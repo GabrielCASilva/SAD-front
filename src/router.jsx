@@ -9,6 +9,7 @@ import Appraisal from './pages/Appraisal';
 import GoalDetail from './pages/GoalDetail';
 import Progress from './pages/Progress';
 import TaskDetail from './pages/TaskDatail';
+import SectorDetail from './pages/SectorDetail';
 
 export default function Routers() {
 	return (
@@ -23,6 +24,7 @@ export default function Routers() {
 					<Route path="funcionarios" element={<Employees />} />
 					<Route path="funcionarios/:id" element={<EmployeeDetail />} />
 					<Route path="setor" element={<Sector />} />
+					<Route path="setor/:id" element={<SectorDetail />} />
 					<Route path="avaliacao" element={<Appraisal />} />
 					<Route path="progresso" element={<Progress />} />
 				</Route>
