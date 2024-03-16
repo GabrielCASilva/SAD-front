@@ -49,3 +49,7 @@
 .card-border-color--gray {
 	border-color: var(--white-gray);
 }
+
+.card-border-color--black {
+	border-color: var(--text-dark-gray);
+}

@@ -18,15 +18,15 @@ export default function ProgressCard() {
 					<div className="flex gap-24">
 						<SimpleCard cardClasses="w-max-fit-content card-border-color--green">
 							<span className="b-500">[X] </span>
-							<p class="m-zero">Agilidade</p>
+							<p className="m-zero">Agilidade</p>
 						</SimpleCard>
 						<SimpleCard cardClasses="w-max-fit-content card-border-color--yellow">
 							<span className="b-500">[X] </span>
-							<p class="m-zero">Produtividade</p>
+							<p className="m-zero">Produtividade</p>
 						</SimpleCard>
 						<SimpleCard cardClasses="w-max-fit-content card-border-color--yellow">
 							<span className="b-500">[X] </span>
-							<p class="m-zero">Eficacia</p>
+							<p className="m-zero">Eficacia</p>
 						</SimpleCard>
 					</div>
 
@@ -34,19 +34,19 @@ export default function ProgressCard() {
 					<div className="flex gap-24">
 						<SimpleCard cardClasses="w-max-fit-content card-border-color--green">
 							<span className="b-500">[X] </span>
-							<p class="m-zero">Concluídas</p>
+							<p className="m-zero">Concluídas</p>
+						</SimpleCard>
+						<SimpleCard cardClasses="w-max-fit-content card-border-color--black">
+							<span className="b-500">[X] </span>
+							<p className="m-zero">Ativas</p>
 						</SimpleCard>
 						<SimpleCard cardClasses="w-max-fit-content card-border-color--yellow">
 							<span className="b-500">[X] </span>
-							<p class="m-zero">Ativas</p>
-						</SimpleCard>
-						<SimpleCard cardClasses="w-max-fit-content card-border-color--yellow">
-							<span className="b-500">[X] </span>
-							<p class="m-zero">Em andamento</p>
+							<p className="m-zero">Em andamento</p>
 						</SimpleCard>
 						<SimpleCard cardClasses="w-max-fit-content card-border-color--gray">
 							<span className="b-500">[X] </span>
-							<p class="m-zero">Inativas</p>
+							<p className="m-zero">Inativas</p>
 						</SimpleCard>
 					</div>
 				</CardRow>

@@ -7,6 +7,7 @@ import { Input, Select } from 'antd';
 
 const { Search } = Input;
 
+//TODO: Atualizar
 export default function AppraisalCard() {
 	const { appraisal } = useStore();
 	const { data } = appraisal;
@@ -16,20 +17,39 @@ export default function AppraisalCard() {
 			<CardContainer>
 				<CardRow>
 					<SubTitle>Relatório geral</SubTitle>
-					<p>
-						O Funcionário conseguiu atingir aproximadamente
-						<span className="b-500"> {data.performance}% </span>
-						do total das métricas do período avaliado
-					</p>
+					<p>Métricas atingidas</p>
 					<div className="flex gap-24">
 						<SimpleCard cardClasses="w-max-fit-content card-border-color--green">
-							{data.tasksCompleted} tarefas concluidas
+							<span className="b-500">[X] </span>
+							<p className="m-zero">Agilidade</p>
 						</SimpleCard>
 						<SimpleCard cardClasses="w-max-fit-content card-border-color--yellow">
-							{data.tasksIncomplete} tarefas incompletas
+							<span className="b-500">[X] </span>
+							<p className="m-zero">Produtividade</p>
+						</SimpleCard>
+						<SimpleCard cardClasses="w-max-fit-content card-border-color--yellow">
+							<span className="b-500">[X] </span>
+							<p className="m-zero">Eficacia</p>
+						</SimpleCard>
+					</div>
+
+					<p>Tarefas avaliadas</p>
+					<div className="flex gap-24">
+						<SimpleCard cardClasses="w-max-fit-content card-border-color--green">
+							<span className="b-500">[X] </span>
+							<p className="m-zero">Concluídas</p>
+						</SimpleCard>
+						<SimpleCard cardClasses="w-max-fit-content card-border-color--black">
+							<span className="b-500">[X] </span>
+							<p className="m-zero">Ativas</p>
+						</SimpleCard>
+						<SimpleCard cardClasses="w-max-fit-content card-border-color--yellow">
+							<span className="b-500">[X] </span>
+							<p className="m-zero">Em andamento</p>
 						</SimpleCard>
 						<SimpleCard cardClasses="w-max-fit-content card-border-color--gray">
-							{data.tasksPending} tarefas pendentes
+							<span className="b-500">[X] </span>
+							<p className="m-zero">Inativas</p>
 						</SimpleCard>
 					</div>
 				</CardRow>
