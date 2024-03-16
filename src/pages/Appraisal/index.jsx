@@ -7,6 +7,7 @@ import { currentDateBRFormat } from '../../utils/date';
 import { useStore } from '../../store';
 import { useEffect } from 'react';
 
+//TODO: COLOCAR INFORMAÇÕES
 export default function Appraisal() {
 	const location = useLocation();
 	const { appraisal } = useStore();

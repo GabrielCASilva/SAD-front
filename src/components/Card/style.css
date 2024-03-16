@@ -46,6 +46,6 @@
 	border-color: var(--yellow);
 }
 
-.card-border-color-gray {
+.card-border-color--gray {
 	border-color: var(--white-gray);
 }

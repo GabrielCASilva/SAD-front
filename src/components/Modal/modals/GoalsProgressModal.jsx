@@ -12,6 +12,7 @@ import Spin from '../../Spin';
 
 const { RangePicker } = DatePicker;
 
+//TODO: ATUALIZAR DEPOIS
 export default function GoalsProgressModal(props) {
 	const { goalsTasks = [] } = props;
 	const [date, setDate] = useState({ initDate: '', finalDate: '' });

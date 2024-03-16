@@ -28,7 +28,7 @@ export default function AppraisalCard() {
 						<SimpleCard cardClasses="w-max-fit-content card-border-color--yellow">
 							{data.tasksIncomplete} tarefas incompletas
 						</SimpleCard>
-						<SimpleCard cardClasses="w-max-fit-content card-border-color-gray">
+						<SimpleCard cardClasses="w-max-fit-content card-border-color--gray">
 							{data.tasksPending} tarefas pendentes
 						</SimpleCard>
 					</div>

@@ -1,22 +1,21 @@
-import { Input, Select } from 'antd';
-import { CardContainer, CardRow, CardWithoutTabs } from '..';
-import { SubTitle } from '../../Titles';
-import GoalsTable from '../../Table/tables/GoalsTable';
+import { CardContainer, CardWithoutTabs } from '..';
 
-const { Search } = Input;
+import { TASKS_STATE_OPTIONS } from '../../../constants/ordering';
+import { useStore } from '../../../store';
+import FilteredTableInDescriptionCard from '../../Table/tablesWithFilters/FilteredTableInDescriptionCard';
 
 export default function GoalsDetailCard() {
+	const { goal } = useStore();
+	const { data } = goal;
+
 	return (
 		<CardWithoutTabs>
 			<CardContainer>
-				<CardRow>
-					<SubTitle>Lista das tarefas associadas</SubTitle>
-					<div className="w-fit-content">
-						<Select placeholder="Ordenação" />
-					</div>
-					<Search />
-					<GoalsTable />
-				</CardRow>
+				<FilteredTableInDescriptionCard
+					data={data.tarefas}
+					orderingOptions={TASKS_STATE_OPTIONS}
+					subTitle="Lista das tarefas associadas"
+				/>
 			</CardContainer>
 		</CardWithoutTabs>
 	);

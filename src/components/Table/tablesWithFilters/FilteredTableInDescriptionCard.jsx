@@ -1,11 +1,11 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { SubTitle } from '../../Titles';
 import TasksStateTable from '../tables/TasksStateTable';
 import { Input, Select } from 'antd';
 const { Search } = Input;
 
 export default function FilteredTableInDescriptionCard(props) {
-	const { data, orderingOptions = [] } = props;
+	const { data, orderingOptions = [], subTitle = 'Todas as tarefas' } = props;
 
 	const [tableData, setTableData] = useState([]);
 	const [search, setSearch] = useState('');
@@ -46,7 +46,7 @@ export default function FilteredTableInDescriptionCard(props) {
 	const _data = tableData.length > 0 ? tableData : data;
 	return (
 		<>
-			<SubTitle>Todas as tarefas</SubTitle>
+			<SubTitle>{subTitle}</SubTitle>
 			<div className="flex column gap-24 ant-border-color">
 				<div className="w-fit-content">
 					<Select
