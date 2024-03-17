@@ -41,7 +41,7 @@ export default function GoalDetail() {
 				<p>Final: {dataConclusao ? dataConclusao : dataPrevistaConclusao}</p>
 			</SimpleCard>
 			<GoalsProgressModal goalsTasks={tarefas} />
-			<Button>Desativar funcionário</Button>
+			<Button>Inativar meta</Button>
 			<Button>Editar dados</Button>
 		</DetailLayout>
 	);

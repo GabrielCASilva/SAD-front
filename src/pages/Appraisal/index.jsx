@@ -51,7 +51,6 @@ const DUMY_DATA = {
 	},
 	resumo_tarefas: {
 		concluidas: 30,
-		ativas: 30,
 		andamento: 23,
 		inativas: 12,
 	},

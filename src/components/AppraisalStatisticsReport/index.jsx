@@ -9,26 +9,26 @@ export default function AppraisalStatisticsReport(props) {
 			<div className="flex gap-24">
 				<SimpleCard cardClasses="w-max-fit-content card-border-color--green">
 					<p className="m-zero">
-						<span className="b-500 block">{metricas?.agilidade} </span>
+						<span className="b-500 block">{metricas?.agilidade}% </span>
 						Agilidade
 					</p>
 				</SimpleCard>
 				<SimpleCard cardClasses="w-max-fit-content card-border-color--yellow">
 					<p className="m-zero">
-						<span className="b-500 block">{metricas?.produtividade} </span>
+						<span className="b-500 block">{metricas?.produtividade}% </span>
 						Produtividade
 					</p>
 				</SimpleCard>
 				<SimpleCard cardClasses="w-max-fit-content card-border-color--yellow">
 					<p className="m-zero">
-						<span className="b-500 block">{metricas?.eficacia} </span>
+						<span className="b-500 block">{metricas?.eficacia}% </span>
 						Eficacia
 					</p>
 				</SimpleCard>
 				{metricas?.comprometimento && (
-					<SimpleCard cardClasses="w-max-fit-content card-border-color--yellow">
+					<SimpleCard cardClasses="w-max-fit-content card-border-color--green">
 						<p className="m-zero">
-							<span className="b-500 block">{metricas?.comprometimento} </span>
+							<span className="b-500 block">{metricas?.comprometimento}% </span>
 							Comprometimento
 						</p>
 					</SimpleCard>
@@ -43,12 +43,14 @@ export default function AppraisalStatisticsReport(props) {
 						Concluídas
 					</p>
 				</SimpleCard>
-				<SimpleCard cardClasses="w-max-fit-content card-border-color--black">
-					<p className="m-zero">
-						<span className="b-500 block">{resumoTarefas?.ativas} </span>
-						Ativas
-					</p>
-				</SimpleCard>
+				{resumoTarefas?.ativas && (
+					<SimpleCard cardClasses="w-max-fit-content card-border-color--black">
+						<p className="m-zero">
+							<span className="b-500 block">{resumoTarefas?.ativas} </span>
+							Ativas
+						</p>
+					</SimpleCard>
+				)}
 				<SimpleCard cardClasses="w-max-fit-content card-border-color--yellow">
 					<p className="m-zero">
 						<span className="b-500 block">{resumoTarefas?.andamento} </span>

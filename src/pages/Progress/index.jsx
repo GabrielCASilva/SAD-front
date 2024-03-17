@@ -5,7 +5,10 @@ import DetailLayout from '../../layout/DetailLayout';
 import { SubTitle } from '../../components/Titles';
 import { useEffect } from 'react';
 import { useStore } from '../../store';
-import { dateIntervalInMonthOrDays } from '../../utils/date';
+import {
+	currentDateBRFormat,
+	dateIntervalInMonthOrDays,
+} from '../../utils/date';
 
 //TODO: REVER
 export default function Progress() {
@@ -13,7 +16,7 @@ export default function Progress() {
 	const { progress } = useStore();
 	const { state } = location;
 
-	const { responsavel, setor, periodoCalculado, dataInicio, dataFinal } =
+	const { responsavel, setor, periodoCalculado, dataInicio, dataFinal, meta } =
 		progress.data;
 
 	useEffect(() => {
@@ -21,8 +24,9 @@ export default function Progress() {
 		progress.setData({ data: DUMY_DATA });
 	}, []);
 
+	const title = `${currentDateBRFormat()} - ${meta?.nome}`;
 	return (
-		<DetailLayout title="[DATA] - [NOME]" card="progress">
+		<DetailLayout title={title} card="progress">
 			<SimpleCard>
 				<SubTitle>Autor</SubTitle>
 				<p>{responsavel?.nome}</p>
@@ -60,4 +64,5 @@ const DUMY_DATA = {
 	periodoCalculado: dateIntervalInMonthOrDays('2024-02-25', '2024-03-30'),
 	dataInicio: '30/02/2024',
 	dataFinal: '30/03/2024',
+	meta: { nome: 'nome da meta' },
 };
