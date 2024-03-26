@@ -8,6 +8,8 @@ import { Input, Select } from 'antd';
 import './style.css';
 import { useStore } from '../../store';
 import { useEffect, useMemo, useState } from 'react';
+import { dynamicSort } from '../../utils/dynamicSort';
+import { OPTIONS_LABEL } from '../../constants/options';
 
 const { Search } = Input;
 
@@ -57,14 +59,14 @@ export default function PageLayout(props) {
 	};
 
 	const onOrderChange = (e) => {
-		setSelectedOrder(`Ordernar por: ${e}`);
+		setSelectedOrder(`Ordernar por: ${OPTIONS_LABEL[e]}`);
 		const dataSorted = [...data.dataRef]?.sort(dynamicSort(e));
 
 		data?.setData({ data: dataSorted });
 	};
 
 	const onRoleChange = (e) => {
-		setSelectedRole(`Cargo: ${e}`);
+		setSelectedRole(`Cargo: ${OPTIONS_LABEL[e]}`);
 		const dataFiltered = data?.dataRef.filter((item) => {
 			if (e === 'todos') return item;
 			const lower = item.cargo.nome.toLowerCase();
@@ -124,17 +126,4 @@ export default function PageLayout(props) {
 			</div>
 		</>
 	);
-}
-
-function dynamicSort(property) {
-	let sortOrder = 1;
-	if (property[0] === '-') {
-		sortOrder = -1;
-		property = property.substr(1);
-	}
-	return function (a, b) {
-		let result =
-			a[property] < b[property] ? -1 : a[property] > b[property] ? 1 : 0;
-		return result * sortOrder;
-	};
 }

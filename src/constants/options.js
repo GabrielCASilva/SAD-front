@@ -31,11 +31,11 @@ export const TASKS_OPTIONS = [
 		label: 'Título',
 	},
 	{
-		value: 'funcionarioResponsavel',
+		value: 'supervisor',
 		label: 'Supervisor',
 	},
 	{
-		value: 'funcionarioAlocado',
+		value: 'servidor',
 		label: 'Servidor',
 	},
 	{
@@ -54,8 +54,8 @@ export const GOALS_OPTIONS = [
 		label: 'Título',
 	},
 	{
-		value: 'responsavel',
-		label: 'Autor',
+		value: 'diretor',
+		label: 'Diretor',
 	},
 	{
 		value: 'setor',
@@ -111,19 +111,19 @@ export const SITUATION_TASKS_OPTIONS = [
 		label: 'Todas',
 	},
 	{
-		value: 'ATIVA',
+		value: 'ATIVO',
 		label: 'Ativa',
 	},
 	{
-		value: 'INATIVA',
+		value: 'INATIVO',
 		label: 'Inativa',
 	},
 	{
-		value: 'ANDAMENTO',
+		value: 'EM_ANDAMENTO',
 		label: 'Em andamento',
 	},
 	{
-		value: 'CONCLUIDA',
+		value: 'CONCLUÍDO',
 		label: 'Concluída',
 	},
 ];
@@ -134,15 +134,34 @@ export const SITUATION_PARTIAL_TASKS_OPTIONS = [
 		label: 'Todas',
 	},
 	{
-		value: 'ATIVA',
+		value: 'ATIVO',
 		label: 'Ativa',
 	},
 	{
-		value: 'ANDAMENTO',
+		value: 'EM_ANDAMENTO',
 		label: 'Em andamento',
 	},
 	{
-		value: 'CONCLUIDA',
+		value: 'CONCLUÍDO',
 		label: 'Concluída',
 	},
 ];
+
+export const OPTIONS_LABEL = {
+	id: 'id',
+	nome: 'Título',
+	cargo: 'Cargo',
+	email: 'Email',
+	situacao: 'Situação',
+	supervisor: 'Supervisor',
+	servidor: 'Servidor',
+	setor: 'Setor',
+	ramal: 'Ramal',
+	diretor: 'Diretor',
+
+	todos: 'Todos',
+	TODAS: 'Todas',
+	EM_ANDAMENTO: 'Em andamento',
+	ATIVO: 'Ativa',
+	CONCLUÍDO: 'Concluída',
+};

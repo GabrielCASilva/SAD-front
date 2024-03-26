@@ -96,7 +96,7 @@ export const GOALS_COLUMNS = [
 		key: 'nome',
 	},
 	{
-		title: 'Autor',
+		title: 'Diretor',
 		dataIndex: 'diretor',
 		key: 'diretor',
 		render: (diretor) => diretor.nome,
