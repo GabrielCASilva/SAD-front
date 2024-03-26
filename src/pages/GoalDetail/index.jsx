@@ -10,8 +10,6 @@ export default function GoalDetail() {
 	const { id } = useParams();
 	const { data, isLoading } = useGetGoalAndGoalsTasks({ id });
 
-	console.log(data);
-
 	const {
 		nome,
 		setor,
