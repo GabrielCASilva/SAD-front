@@ -51,8 +51,9 @@ export default function PageLayout(props) {
 		const dataFiltered = data?.dataRef.filter((item) => {
 			if (!search) return item;
 
+			const searchLower = search.toLowerCase();
 			const lower = item.nome.toLowerCase();
-			return lower.includes(search);
+			return lower.includes(searchLower);
 		});
 
 		data?.filterData({ data: dataFiltered });
