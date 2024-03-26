@@ -2,7 +2,7 @@ import { Tag as AntdTag } from 'antd';
 import './style.css';
 
 const TAGS = {
-	CONCLUIDA: {
+	CONCLUÍDO: {
 		color: 'var(--dark-green)',
 		menssage: 'Concluida',
 		textColor: 'white',
@@ -11,12 +11,12 @@ const TAGS = {
 		color: 'var(--background-gray)',
 		menssage: 'Ativa',
 	},
-	ANDAMENTO: {
+	EM_ANDAMENTO: {
 		color: 'var(--yellow)',
 		menssage: 'Em andamento',
 		textColor: 'white',
 	},
-	INATIVA: {
+	INATIVO: {
 		color: 'var(--background-gray)',
 		menssage: 'Inativa',
 	},

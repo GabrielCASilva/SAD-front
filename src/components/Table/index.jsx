@@ -10,6 +10,7 @@ export default function Table(props) {
 		<AntdTable
 			columns={columns}
 			dataSource={data}
+			pagination={{ pageSize: 8 }}
 			rowKey={(record) => record.id}
 			onRow={(record) => {
 				return {

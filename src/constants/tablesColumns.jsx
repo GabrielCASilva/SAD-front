@@ -42,14 +42,14 @@ export const TASKS_COLUMNS = [
 	},
 	{
 		title: 'Servidor',
-		dataIndex: 'funcionarioAlocado',
-		key: 'funcionarioAlocado',
+		dataIndex: 'servidor',
+		key: 'servidor',
 		render: (servidor) => servidor.nome,
 	},
 	{
 		title: 'Supervisor',
-		dataIndex: 'funcionarioResponsavel',
-		key: 'funcionarioResponsavel',
+		dataIndex: 'supervisor',
+		key: 'supervisor',
 		render: (supervisor) => supervisor.nome,
 	},
 	{
@@ -97,9 +97,9 @@ export const GOALS_COLUMNS = [
 	},
 	{
 		title: 'Autor',
-		dataIndex: 'responsavel',
-		key: 'responsavel',
-		render: (responsavel) => responsavel.nome,
+		dataIndex: 'diretor',
+		key: 'diretor',
+		render: (diretor) => diretor.nome,
 	},
 	{
 		title: 'Setor',

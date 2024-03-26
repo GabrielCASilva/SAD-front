@@ -49,6 +49,18 @@ export default class Service {
 		const { method, url, params = null, data = null, signal = null } = props;
 		const config = { method, baseURL: BASE_URL, url, data, params, signal };
 
+		try {
+			const response = await axios.request(config);
+			return response.data;
+		} catch (error) {
+			throw error;
+		}
+	}
+
+	static async callWithToken(props) {
+		const { method, url, params = null, data = null, signal = null } = props;
+		const config = { method, baseURL: BASE_URL, url, data, params, signal };
+
 		if (!this.accessToken && url !== '/auth/login') {
 			await this.obtainToken();
 		}
