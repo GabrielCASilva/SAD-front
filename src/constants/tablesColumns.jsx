@@ -1,4 +1,5 @@
 import Tag from '../components/Tag';
+import { formateBRDate } from '../utils/date';
 
 export const TASKS_STATE_COLUMNS = [
 	{
@@ -15,11 +16,13 @@ export const TASKS_STATE_COLUMNS = [
 		title: 'Data Inicio',
 		dataIndex: 'dataInicio',
 		key: 'dataInicio',
+		render: (date) => formateBRDate(date),
 	},
 	{
 		title: 'Data Final',
-		dataIndex: 'dataFinal',
-		key: 'dataFinal',
+		dataIndex: 'dataPrevistaConclusao',
+		key: 'dataPrevistaConclusao',
+		render: (date) => formateBRDate(date),
 	},
 	{
 		title: 'Sitação',

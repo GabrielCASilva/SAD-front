@@ -3,10 +3,11 @@ import { SubTitle } from '../../Titles';
 import TasksStateTable from '../tables/TasksStateTable';
 import { Input, Select } from 'antd';
 import {
+	OPTIONS_LABEL,
 	SITUATION_TASKS_OPTIONS,
 	TASKS_STATE_OPTIONS,
 } from '../../../constants/options';
-import { SITUACAO_SERVICO } from '../../../constants/situacoes';
+import { dynamicSort } from '../../../utils/dynamicSort';
 const { Search } = Input;
 
 export default function FilteredTableInDescriptionCard(props) {
@@ -16,7 +17,6 @@ export default function FilteredTableInDescriptionCard(props) {
 		subTitle = 'Todas as tarefas',
 		hasFilterBySituation = false,
 		situationOptions = SITUATION_TASKS_OPTIONS,
-		existentsSituations = SITUACAO_SERVICO,
 	} = props;
 
 	const [tableData, setTableData] = useState([]);
@@ -37,15 +37,16 @@ export default function FilteredTableInDescriptionCard(props) {
 		const dataFiltered = data?.filter((item) => {
 			if (!search) return item;
 
+			const searchLower = search.toLowerCase();
 			const lower = item.nome.toLowerCase();
-			return lower.includes(search);
+			return lower.includes(searchLower);
 		});
 
 		setTableData(dataFiltered);
 	};
 
 	const onOrderingChange = (e) => {
-		setSelectedOrdering(`Ordernar por: ${e}`);
+		setSelectedOrdering(`Ordernar por: ${OPTIONS_LABEL[e]}`);
 
 		const dataSorted = [...data]?.sort(dynamicSort(e));
 
@@ -53,7 +54,7 @@ export default function FilteredTableInDescriptionCard(props) {
 	};
 
 	const onSituationChange = (e) => {
-		setSelectedSituation(`Mostrar tarefas: ${existentsSituations[e]}`);
+		setSelectedSituation(`Mostrar tarefas: ${OPTIONS_LABEL[e]}`);
 
 		const dataFiltered = data?.filter((item) => {
 			if (e === 'TODAS') return item;
@@ -102,17 +103,4 @@ export default function FilteredTableInDescriptionCard(props) {
 			</div>
 		</>
 	);
-}
-
-function dynamicSort(property) {
-	let sortOrder = 1;
-	if (property[0] === '-') {
-		sortOrder = -1;
-		property = property.substr(1);
-	}
-	return function (a, b) {
-		let result =
-			a[property] < b[property] ? -1 : a[property] > b[property] ? 1 : 0;
-		return result * sortOrder;
-	};
 }

@@ -6,8 +6,8 @@ import ProgressBar from '../../ProgressBar';
 import { useStore } from '../../../store';
 import FilteredTableInDescriptionCard from '../../Table/tablesWithFilters/FilteredTableInDescriptionCard';
 import { TASKS_STATE_OPTIONS } from '../../../constants/options';
-
-const { Search } = Input;
+import { SITUACAO_SERVICO_KEYS } from '../../../constants/situacoes';
+import { formateBRDate } from '../../../utils/date';
 
 const tabList = [
 	{
@@ -48,7 +48,9 @@ function EmployeesCurrentTask() {
 	const { tarefas } = data;
 
 	const currentTask =
-		tarefas.find((tarefa) => tarefa.dataInicio && !tarefa.dataConclusao) || {};
+		tarefas.find(
+			(tarefa) => tarefa.situacao === SITUACAO_SERVICO_KEYS.EM_ANDAMENTO,
+		) || {};
 
 	return (
 		<>
@@ -64,7 +66,7 @@ function EmployeesCurrentTask() {
 					style={{ position: 'relative', zIndex: 1 }}>
 					<div
 						className="w-100"
-						style={{ maxWidth: '32.2rem', minHeight: '16rem' }}>
+						style={{ maxWidth: '42.2rem', minHeight: '16rem' }}>
 						<SimpleCard cardClasses="h-100">
 							<p className="b-600">{currentTask.nome}</p>
 							<p>{currentTask.descricao}</p>
@@ -72,9 +74,8 @@ function EmployeesCurrentTask() {
 					</div>
 					<div className="flex column justify-center w-100 b-500 gap-14">
 						<div className="flex justify-between">
-							<p>Inicio: {currentTask?.dataInicio}</p>
-							<p>Final: {currentTask?.dataPrevistaConclusao}</p>
-							<p>Previsao: {currentTask?.dataPrevistaConclusao}</p>
+							<p>Inicio: {formateBRDate(currentTask?.dataInicio)}</p>
+							<p>Final: {formateBRDate(currentTask?.dataPrevistaConclusao)}</p>
 						</div>
 						<div>
 							<p>Tempo de progresso</p>

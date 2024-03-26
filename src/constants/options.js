@@ -12,7 +12,7 @@ export const TASKS_STATE_OPTIONS = [
 		label: 'Data Inicio',
 	},
 	{
-		value: 'dataFinal',
+		value: 'dataPrevistaConclusao',
 		label: 'Data Final',
 	},
 	{
@@ -158,6 +158,8 @@ export const OPTIONS_LABEL = {
 	setor: 'Setor',
 	ramal: 'Ramal',
 	diretor: 'Diretor',
+	dataInicio: 'Data Inicio',
+	dataPrevistaConclusao: 'Data final',
 
 	todos: 'Todos',
 	TODAS: 'Todas',

@@ -10,6 +10,8 @@ export default function GoalDetail() {
 	const { id } = useParams();
 	const { data, isLoading } = useGetGoalAndGoalsTasks({ id });
 
+	console.log(data);
+
 	const {
 		nome,
 		setor,
@@ -17,7 +19,7 @@ export default function GoalDetail() {
 		dataCriacao,
 		dataPrevistaConclusao,
 		dataConclusao,
-		responsavel,
+		diretor,
 	} = data;
 
 	const title = (
@@ -29,7 +31,7 @@ export default function GoalDetail() {
 		<DetailLayout title={title} card="goals" loading={isLoading}>
 			<SimpleCard>
 				<SubTitle>Autor</SubTitle>
-				<p>{responsavel.nome}</p>
+				<p>{diretor.nome}</p>
 			</SimpleCard>
 			<SimpleCard>
 				<SubTitle>Setor associado a meta</SubTitle>

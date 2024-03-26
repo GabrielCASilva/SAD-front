@@ -1,7 +1,7 @@
 export const createGoalSlice = (set) => ({
 	data: {
 		nome: '',
-		responsavel: {
+		diretor: {
 			nome: '',
 		},
 		setor: {

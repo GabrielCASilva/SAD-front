@@ -1,22 +1,42 @@
+const SITUACAO_SERVICO_KEYS = {
+	TODAS: 'TODAS',
+	ATIVO: 'ATIVO',
+	INATIVO: 'INATIVO',
+	EM_ANDAMENTO: 'EM_ANDAMENTO',
+	CONCLUÍDO: 'CONCLUÍDO',
+};
+
+const SITUACAO_FUNCIONARIO_KEYS = {
+	ATIVO: 'ATIVO',
+	INATIVO: 'INATIVO',
+	EM_LICENÇA: 'EM_LICENÇA',
+};
+
+const CATEGORIA_AVALIACAO_KEYS = {
+	NENHUM: 'NENHUM',
+	SUPERIOR: 'SUPERIOR',
+	EXECUTOR: 'EXECUTOR',
+};
+
 const SITUACAO_FUNCIONARIO = {
-	ATIVA: 'Ativa',
-	INATIVA: 'Inativa',
-	LICENCA: 'Em licença',
+	ATIVO: 'Ativa',
+	INATIVO: 'Inativa',
+	EM_LICENÇA: 'Em licença',
 };
 
 const SITUACAO_SERVICO = {
 	TODAS: 'Todas',
-	ATIVA: 'Ativa',
-	INATIVA: 'Inativa',
-	ANDAMENTO: 'Em andamento',
-	CONCLUIDA: 'Concluída',
+	ATIVO: 'Ativa',
+	INATIVO: 'Inativa',
+	EM_ANDAMENTO: 'Em andamento',
+	CONCLUÍDO: 'Concluída',
 };
 
 const SITUACAO_PARCIAL_SERVICO = {
 	TODAS: 'Todas',
-	INATIVA: 'Inativa',
-	ANDAMENTO: 'Em andamento',
-	CONCLUIDA: 'Concluída',
+	INATIVO: 'Inativa',
+	EM_ANDAMENTO: 'Em andamento',
+	CONCLUÍDO: 'Concluída',
 };
 
 const CATEGORIA_AVALIACAO = {
@@ -26,6 +46,9 @@ const CATEGORIA_AVALIACAO = {
 };
 
 export {
+	SITUACAO_SERVICO_KEYS,
+	SITUACAO_FUNCIONARIO_KEYS,
+	CATEGORIA_AVALIACAO_KEYS,
 	SITUACAO_SERVICO,
 	SITUACAO_PARCIAL_SERVICO,
 	SITUACAO_FUNCIONARIO,
