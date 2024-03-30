@@ -6,19 +6,18 @@ import { SubTitle } from '../../components/Titles';
 import {
 	currentDateBRFormat,
 	dateIntervalInMonthOrDays,
+	formateBRDate,
 } from '../../utils/date';
 import { useStore } from '../../store';
 import { useEffect } from 'react';
 
-//TODO: COLOCAR INFORMAÇÕES
 export default function Appraisal() {
 	const location = useLocation();
 	const { appraisal } = useStore();
 	const { state } = location;
-	console.log(state);
-	console.log(appraisal);
+	console.log(appraisal)
 
-	const { funcionario, periodoCalculado, dataInicio, dataFinal, meta } =
+	const { funcionario, periodoCalculado, date, meta } =
 		appraisal?.data;
 
 	useEffect(() => {
@@ -35,30 +34,10 @@ export default function Appraisal() {
 			<SimpleCard>
 				<SubTitle>Período calculado</SubTitle>
 				<p>{periodoCalculado}</p>
-				<p>Início: {dataInicio}</p>
-				<p>Final: {dataFinal}</p>
+				<p>Início: {formateBRDate(date?.dataInicio)}</p>
+				<p>Final: {formateBRDate(date?.dataFim)}</p>
 			</SimpleCard>
 			<ReportModal />
 		</DetailLayout>
 	);
 }
-
-const DUMY_DATA = {
-	metricas: {
-		agilidade: 80.0,
-		produtividade: 30.0,
-		eficacia: 40.0,
-		comprometimento: 50.0,
-	},
-	resumo_tarefas: {
-		concluidas: 30,
-		andamento: 23,
-		inativas: 12,
-	},
-	tarefas: [],
-	meta: { nome: 'nome de meta' },
-	funcionario: { nome: 'Fernanda' },
-	periodoCalculado: dateIntervalInMonthOrDays('2024-02-25', '2024-03-30'),
-	dataInicio: '30/02/2024',
-	dataFinal: '30/03/2024',
-};

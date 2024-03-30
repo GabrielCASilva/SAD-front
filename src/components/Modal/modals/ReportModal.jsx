@@ -1,11 +1,14 @@
+
 import Modal from '..';
+import ReportService from '../../../api/services/ReportService';
 
 export function ReportModal() {
 	const footerProps = () => {
 		return {
 			type: 'close',
-			handleClick: () => {
-				// download report
+			handleClick:  async () => {
+				const resp = await ReportService.download();
+				console.log(resp)
 			},
 		};
 	};

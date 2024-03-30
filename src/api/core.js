@@ -46,8 +46,23 @@ export default class Service {
 	static async setRefreshTokenTimeout() {}
 
 	static async call(props) {
-		const { method, url, params = null, data = null, signal = null } = props;
-		const config = { method, baseURL: BASE_URL, url, data, params, signal };
+		const {
+			method,
+			url,
+			params = null,
+			data = null,
+			signal = null,
+			responseType = 'json',
+		} = props;
+		const config = {
+			method,
+			baseURL: BASE_URL,
+			url,
+			data,
+			params,
+			signal,
+			responseType,
+		};
 
 		try {
 			const response = await axios.request(config);

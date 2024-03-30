@@ -16,6 +16,7 @@ export default function Modal(props) {
 
 	const showModal = () => {
 		setIsModalOpen(true);
+
 	};
 
 	const closeModal = () => {

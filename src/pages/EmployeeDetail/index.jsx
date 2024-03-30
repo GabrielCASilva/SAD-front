@@ -12,6 +12,7 @@ export default function EmployeeDetail() {
 		id,
 	});
 	const { nome, foto, setor, tarefas, cargo, dataCadastro } = employee;
+	console.log(employee)
 
 	const title = (
 		<>
@@ -46,6 +47,7 @@ export default function EmployeeDetail() {
 			</SimpleCard>
 			<PerformanceAppraisalModal
 				employeeTasks={tarefas}
+				employeeName={nome}
 				id={id}
 				cargo={cargo.nome}
 			/>

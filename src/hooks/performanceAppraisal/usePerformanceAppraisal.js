@@ -1,16 +1,16 @@
 import { useEffect } from 'react';
 import TaskService from '../../api/services/TaskService';
+import { dateIntervalInMonthOrDays } from '../../utils/date';
 
 export const usePerformanceAppraisal = (
 	id,
 	cargo,
 	date,
 	phase,
+	employeeName,
 	setPhase,
 	setPerformance,
 ) => {
-	//servidor/12?dataInicio=2022-10-15&dataFim=2023-03-15
-
 	const params = {
 		dataInicio: date.initDate,
 		dataFim: date.finalDate,
@@ -37,10 +37,21 @@ export const usePerformanceAppraisal = (
 					});
 				}
 				setPhase(3);
-				setPerformance({ ...response, date: params });
+				setPerformance({
+					...response,
+					date: params,
+					meta: { nome: response.tarefasAvaliacao[0].meta.nome },
+					funcionario: { nome: employeeName },
+					periodoCalculado: dateIntervalInMonthOrDays(
+						date.initDate,
+						date.finalDate,
+					),
+				});
 			};
 
-			fetch();
+			setTimeout(() => {
+				fetch();
+			}, 1000);
 
 			return () => {
 				console.log('cancelando...');

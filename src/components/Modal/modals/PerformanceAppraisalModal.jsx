@@ -15,12 +15,14 @@ const { RangePicker } = DatePicker;
 
 //TODO: REVER
 export default function PerformanceAppraisalModal(props) {
-	const { employeeTasks = [], id, cargo } = props;
+	const { employeeTasks = [], id, cargo, employeeName } = props;
 	const [date, setDate] = useState({ initDate: '', finalDate: '' });
 	const [tasks, setTasks] = useState(employeeTasks);
 	const [phase, setPhase] = useState(1);
 	const [performance, setPerformance] = useState({});
 	const navigate = useNavigate();
+
+	console.log(performance);
 
 	const handleChangeDate = (value) => {
 		const initDate = formatISODate(value[0]);
@@ -84,7 +86,7 @@ export default function PerformanceAppraisalModal(props) {
 		setPhase: setPhase,
 	};
 
-	usePerformanceAppraisal(id, cargo, date, phase, setPhase, setPerformance);
+	usePerformanceAppraisal(id, cargo, date, phase, employeeName, setPhase, setPerformance);
 
 	return (
 		<Modal
