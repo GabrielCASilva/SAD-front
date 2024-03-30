@@ -20,8 +20,8 @@ export const TASKS_STATE_COLUMNS = [
 	},
 	{
 		title: 'Data Final',
-		dataIndex: 'dataPrevistaConclusao',
-		key: 'dataPrevistaConclusao',
+		dataIndex: 'dataConclusao',
+		key: 'dataConclusao',
 		render: (date) => formateBRDate(date),
 	},
 	{

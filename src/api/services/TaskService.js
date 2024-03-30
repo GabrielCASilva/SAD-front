@@ -49,4 +49,46 @@ export default class TaskService extends Service {
 			data: data,
 		});
 	}
+
+	///servidor/12?dataInicio=2022-10-15&dataFim=2023-03-15
+	static async servidorAppraisal(props) {
+		const { signal, params, id } = props;
+
+		const response = await this.call({
+			method: METHOD.GET,
+			url: `${URL}/servidor/${id}`,
+			signal: signal,
+			params: params,
+		});
+
+		return response;
+	}
+
+	//supervisor/11?dataInicio=2022-10-15&dataFim=2023-03-15
+	static async supervisorAppraisal(props) {
+		const { signal, params, id } = props;
+
+		const response = await this.call({
+			method: METHOD.GET,
+			url: `${URL}/supervisor/${id}`,
+			signal: signal,
+			params: params,
+		});
+
+		return response;
+	}
+
+	//meta/1?dataInicio=2022-10-15&dataFim=2023-03-15
+	static async metaProgress(props) {
+		const { signal, params, id } = props;
+
+		const response = await this.call({
+			method: METHOD.GET,
+			url: `${URL}/meta/${id}`,
+			signal: signal,
+			params: params,
+		});
+
+		return response;
+	}
 }

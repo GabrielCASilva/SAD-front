@@ -19,14 +19,14 @@ export function formateBRDate(date) {
 
 export function isDateSameOrBefore(base, compared) {
 	const baseConverted = dayjs(base);
-	const comparedConverted = dayjs(compared, DATE_FORMATS.BR_DATE);
+	const comparedConverted = dayjs(compared);
 
 	return baseConverted.isSameOrBefore(comparedConverted, 'day');
 }
 
 export function isDateSameOrAfter(base, compared) {
 	const baseConverted = dayjs(base);
-	const comparedConverted = dayjs(compared, DATE_FORMATS.BR_DATE);
+	const comparedConverted = dayjs(compared);
 
 	return baseConverted.isSameOrAfter(comparedConverted, 'day');
 }
@@ -50,4 +50,13 @@ export function dateIntervalInMonthOrDays(initial, final) {
 	}
 
 	return `${difference} meses`;
+}
+
+export function dateIntervalInDays(initial, final) {
+	const init = dayjs(initial);
+	const fin = dayjs(final);
+
+	const difference = fin.diff(init, 'day');
+
+	return `${difference} dias`;
 }

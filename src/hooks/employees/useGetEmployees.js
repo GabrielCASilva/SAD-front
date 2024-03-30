@@ -16,7 +16,11 @@ export const useGetEmployees = () => {
 
 				const employees = await EmployeeService.getEmployees({ signal });
 
-				setData({ data: employees });
+				const filterEmployees = employees.filter(
+					(employee) => employee.cargo.nome !== 'Diretor',
+				);
+
+				setData({ data: filterEmployees });
 				setError(false);
 			} catch (error) {
 				setError(true);

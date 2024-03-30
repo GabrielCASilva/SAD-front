@@ -7,7 +7,7 @@ import { useStore } from '../../../store';
 import FilteredTableInDescriptionCard from '../../Table/tablesWithFilters/FilteredTableInDescriptionCard';
 import { TASKS_STATE_OPTIONS } from '../../../constants/options';
 import { SITUACAO_SERVICO_KEYS } from '../../../constants/situacoes';
-import { formateBRDate } from '../../../utils/date';
+import { dateIntervalInDays, formateBRDate } from '../../../utils/date';
 
 const tabList = [
 	{
@@ -32,9 +32,7 @@ export default function EmployeeDetailCard() {
 function Tab1() {
 	return (
 		<TabContainer>
-			<CardRow>
-				<EmployeesCurrentTask />
-			</CardRow>
+			<EmployeesCurrentTask />
 			<CardRow classes="container">
 				<AllEmployeesTasks />
 			</CardRow>
@@ -47,11 +45,28 @@ function EmployeesCurrentTask() {
 	const { data } = employee;
 	const { tarefas } = data;
 
+	if (data.cargo.nome === 'Supervisor') {
+		return null;
+	}
+
 	const currentTask =
 		tarefas.find(
 			(tarefa) => tarefa.situacao === SITUACAO_SERVICO_KEYS.EM_ANDAMENTO,
-		) || {};
+		) || false;
 
+	return (
+		<CardRow>
+			{currentTask ? (
+				<CurrentTaskLayout task={currentTask} />
+			) : (
+				<NoCurrentyTask />
+			)}
+		</CardRow>
+	);
+}
+
+function CurrentTaskLayout(props) {
+	const { task } = props;
 	return (
 		<>
 			<div className="flex justify-between container">
@@ -68,22 +83,51 @@ function EmployeesCurrentTask() {
 						className="w-100"
 						style={{ maxWidth: '42.2rem', minHeight: '16rem' }}>
 						<SimpleCard cardClasses="h-100">
-							<p className="b-600">{currentTask.nome}</p>
-							<p>{currentTask.descricao}</p>
+							<p className="b-600">{task.nome}</p>
+							<p>{task.descricao}</p>
 						</SimpleCard>
 					</div>
 					<div className="flex column justify-center w-100 b-500 gap-14">
 						<div className="flex justify-between">
-							<p>Inicio: {formateBRDate(currentTask?.dataInicio)}</p>
-							<p>Final: {formateBRDate(currentTask?.dataPrevistaConclusao)}</p>
+							<p>Inicio: {formateBRDate(task?.dataInicio)}</p>
+							<p>Final: {formateBRDate(task?.dataPrevistaConclusao)}</p>
+							<p>
+								Previsao de:{' '}
+								{dateIntervalInDays(
+									task?.dataInicio,
+									task?.dataPrevistaConclusao,
+								)}
+							</p>
 						</div>
 						<div>
 							<p>Tempo de progresso</p>
-							<ProgressBar progress={currentTask?.taxaProgresso} />
+							<ProgressBar progress={task?.taxaProgresso} />
 						</div>
 					</div>
 				</div>
 				<BackgroundEmployeesCurrentTask />
+			</div>
+		</>
+	);
+}
+
+function NoCurrentyTask() {
+	return (
+		<>
+			<div className="flex justify-between container">
+				<SubTitle>Tarefa Atual</SubTitle>
+			</div>
+			<div style={{ position: 'relative' }}>
+				<div
+					className="flex gap-24 container"
+					style={{ position: 'relative', zIndex: 1 }}>
+					<div className="flex column justify-center w-100 b-500 gap-14">
+						<p style={{ margin: '2rem 0' }}>
+							O funcionário não tem nenhuma tarefa em andamento no momento!
+						</p>
+					</div>
+				</div>
+				<BackgroundNoCurrentTask />
 			</div>
 		</>
 	);
@@ -111,6 +155,19 @@ function BackgroundEmployeesCurrentTask() {
 				height: '70%',
 				width: '100%',
 				top: '15%',
+			}}></div>
+	);
+}
+
+function BackgroundNoCurrentTask() {
+	return (
+		<div
+			style={{
+				backgroundColor: 'var(--background-gray)',
+				position: 'absolute',
+				height: '100%',
+				width: '100%',
+				top: '0',
 			}}></div>
 	);
 }

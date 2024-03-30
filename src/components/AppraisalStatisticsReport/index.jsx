@@ -9,26 +9,30 @@ export default function AppraisalStatisticsReport(props) {
 			<div className="flex gap-24">
 				<SimpleCard cardClasses="w-max-fit-content card-border-color--green">
 					<p className="m-zero">
-						<span className="b-500 block">{metricas?.agilidade}% </span>
+						<span className="b-500 block">{metricas?.indiceAgilidade} </span>
 						Agilidade
 					</p>
 				</SimpleCard>
 				<SimpleCard cardClasses="w-max-fit-content card-border-color--yellow">
 					<p className="m-zero">
-						<span className="b-500 block">{metricas?.produtividade}% </span>
-						Produtividade
+						<span className="b-500 block">
+							{metricas?.indiceProdutividade}{' '}
+						</span>
+						indiceProdutividade
 					</p>
 				</SimpleCard>
 				<SimpleCard cardClasses="w-max-fit-content card-border-color--yellow">
 					<p className="m-zero">
-						<span className="b-500 block">{metricas?.eficacia}% </span>
-						Eficacia
+						<span className="b-500 block">{metricas?.indiceEficacia} </span>
+						indiceEficacia
 					</p>
 				</SimpleCard>
-				{metricas?.comprometimento && (
+				{metricas?.indiceComprometimento && (
 					<SimpleCard cardClasses="w-max-fit-content card-border-color--green">
 						<p className="m-zero">
-							<span className="b-500 block">{metricas?.comprometimento}% </span>
+							<span className="b-500 block">
+								{metricas?.indiceComprometimento}{' '}
+							</span>
 							Comprometimento
 						</p>
 					</SimpleCard>

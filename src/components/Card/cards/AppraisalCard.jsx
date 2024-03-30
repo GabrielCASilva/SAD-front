@@ -9,7 +9,21 @@ import { SubTitle } from '../../Titles';
 //TODO: Atualizar
 export default function AppraisalCard() {
 	const { appraisal } = useStore();
-	const { metricas, resumo_tarefas: resumoTarefas, tarefas } = appraisal?.data;
+	const {
+		indiceAgilidade,
+		indiceComprometimento,
+		indiceEficacia,
+		indiceProdutividade,
+		resumo_tarefas: resumoTarefas,
+		tarefasAvaliacao,
+	} = appraisal?.data;
+
+	const metricas = {
+		indiceAgilidade,
+		indiceComprometimento,
+		indiceEficacia,
+		indiceProdutividade,
+	};
 
 	return (
 		<CardWithoutTabs>
@@ -23,7 +37,7 @@ export default function AppraisalCard() {
 				</CardRow>
 				<CardRow classes="ant-border-color">
 					<FilteredTableInDescriptionCard
-						data={tarefas}
+						data={tarefasAvaliacao}
 						hasFilterBySituation={true}
 						situationOptions={SITUATION_PARTIAL_TASKS_OPTIONS}
 						existentsSituations={SITUACAO_PARCIAL_SERVICO}

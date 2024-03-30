@@ -6,7 +6,19 @@ import { SubTitle } from '../../Titles';
 
 export default function ProgressCard() {
 	const { progress } = useStore();
-	const { metricas, resumo_tarefas: resumoTarefas, tarefas } = progress?.data;
+	const {
+		indiceAgilidade,
+		indiceEficacia,
+		indiceProdutividade,
+		resumo_tarefas: resumoTarefas,
+		tarefasAvaliacao,
+	} = progress?.data;
+
+	const metricas = {
+		indiceAgilidade,
+		indiceEficacia,
+		indiceProdutividade,
+	};
 	return (
 		<CardWithoutTabs>
 			<CardContainer>
@@ -20,7 +32,7 @@ export default function ProgressCard() {
 				<CardRow classes="ant-border-color">
 					<FilteredTableInDescriptionCard
 						SubTitle="Lista das tarefas associadas"
-						data={tarefas}
+						data={tarefasAvaliacao}
 						hasFilterBySituation={true}
 					/>
 				</CardRow>

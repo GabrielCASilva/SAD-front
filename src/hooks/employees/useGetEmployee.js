@@ -67,9 +67,11 @@ export const useGetEmployeeAndEmployeesTasks = (props) => {
 
 				const employeeTasks = tasks.filter((task) => {
 					if (employee?.cargo?.nome === 'Servidor') {
-						return task.funcionarioAlocado.id === employee.id;
+						return task.servidor.id === employee.id;
+					} else if (employee?.cargo?.nome === 'Supervisor') {
+						return task.supervisor.id === employee.id;
 					}
-					return [];
+					return false;
 				});
 
 				setData({ data: { ...employee, tarefas: employeeTasks } });

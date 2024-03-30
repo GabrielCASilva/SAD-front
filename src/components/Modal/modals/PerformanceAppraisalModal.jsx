@@ -15,7 +15,7 @@ const { RangePicker } = DatePicker;
 
 //TODO: REVER
 export default function PerformanceAppraisalModal(props) {
-	const { employeeTasks = [] } = props;
+	const { employeeTasks = [], id, cargo } = props;
 	const [date, setDate] = useState({ initDate: '', finalDate: '' });
 	const [tasks, setTasks] = useState(employeeTasks);
 	const [phase, setPhase] = useState(1);
@@ -84,15 +84,7 @@ export default function PerformanceAppraisalModal(props) {
 		setPhase: setPhase,
 	};
 
-	useEffect(() => {
-		if (phase === 2) {
-			setTimeout(() => {
-				const data = usePerformanceAppraisal(tasks, date);
-				setPhase(3);
-				setPerformance(data);
-			}, 10000);
-		}
-	}, [phase]);
+	usePerformanceAppraisal(id, cargo, date, phase, setPhase, setPerformance);
 
 	return (
 		<Modal
@@ -151,10 +143,12 @@ function DisplayModalContent(props) {
 }
 
 // filter tasks in respective date interval select by user
+
+//:supervisor AND t.dataCriacao >= :dataInicio AND t.dataCriacao <= :dataFim"
 const getTasksQuantity = (tasks, date) => {
 	const employeeTasks = tasks.filter((task) => {
-		const initialBefore = isDateSameOrBefore(date.initDate, task.dataCriacao);
-		const finalAfter = isDateSameOrAfter(date.finalDate, task.dataCriacao);
+		const initialBefore = isDateSameOrAfter(task.dataCriacao, date.initDate);
+		const finalAfter = isDateSameOrBefore(task.dataCriacao, date.finalDate);
 
 		return initialBefore && finalAfter;
 	});

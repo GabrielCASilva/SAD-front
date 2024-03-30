@@ -44,7 +44,11 @@ export default function EmployeeDetail() {
 				<p>Tarefas realizadas: {tarefas.length}</p>
 				<p>Tempo de empresa: {pastYears(dataCadastro)} anos</p>
 			</SimpleCard>
-			<PerformanceAppraisalModal employeeTasks={tarefas} />
+			<PerformanceAppraisalModal
+				employeeTasks={tarefas}
+				id={id}
+				cargo={cargo.nome}
+			/>
 			<Button>Inativar funcionário</Button>
 			<Button>Editar dados</Button>
 		</DetailLayout>

@@ -16,12 +16,13 @@ export default function Appraisal() {
 	const { appraisal } = useStore();
 	const { state } = location;
 	console.log(state);
+	console.log(appraisal);
 
 	const { funcionario, periodoCalculado, dataInicio, dataFinal, meta } =
 		appraisal?.data;
 
 	useEffect(() => {
-		appraisal.setData({ data: DUMY_DATA });
+		appraisal.setData({ data: state });
 	}, []);
 
 	const title = `${currentDateBRFormat()} - ${funcionario?.nome}`;
