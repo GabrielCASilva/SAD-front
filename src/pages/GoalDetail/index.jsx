@@ -40,7 +40,10 @@ export default function GoalDetail() {
 				<p>Início: {dataCriacao}</p>
 				<p>Final: {dataConclusao ? dataConclusao : dataPrevistaConclusao}</p>
 			</SimpleCard>
-			<GoalsProgressModal goalsTasks={tarefas} />
+			<GoalsProgressModal goalsTasks={tarefas} 
+			id={id} diretor={diretor.nome} setor={setor.nome}
+			meta={nome}
+			/>
 			<Button>Inativar meta</Button>
 			<Button>Editar dados</Button>
 		</DetailLayout>

@@ -22,8 +22,6 @@ export default function PerformanceAppraisalModal(props) {
 	const [performance, setPerformance] = useState({});
 	const navigate = useNavigate();
 
-	console.log(performance);
-
 	const handleChangeDate = (value) => {
 		const initDate = formatISODate(value[0]);
 		const finalDate = formatISODate(value[1]);

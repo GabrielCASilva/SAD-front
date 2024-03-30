@@ -1,6 +1,6 @@
 import Modal from '..';
 import { DatePicker } from 'antd';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import {
 	DATE_FORMATS,
 	formatISODate,
@@ -9,15 +9,17 @@ import {
 } from '../../../utils/date';
 import { useNavigate } from 'react-router-dom';
 import Spin from '../../Spin';
+import { useProgressGoal } from '../../../hooks/ProgressGoal/useProgressGoal';
 
 const { RangePicker } = DatePicker;
 
 //TODO: ATUALIZAR DEPOIS
 export default function GoalsProgressModal(props) {
-	const { goalsTasks = [] } = props;
+	const { goalsTasks = [], id, diretor, setor, meta } = props;
 	const [date, setDate] = useState({ initDate: '', finalDate: '' });
 	const [tasks, setTasks] = useState(goalsTasks);
 	const [phase, setPhase] = useState(1);
+	const [progress, setProgress] = useState({});
 	const navigate = useNavigate();
 
 	const handleChangeDate = (value) => {
@@ -60,7 +62,7 @@ export default function GoalsProgressModal(props) {
 				return {
 					type: 'close',
 					handleClick: () => {
-						navigate('/progresso', { state: { teste: 'teste' } });
+						navigate('/progresso', { state: progress });
 					},
 				};
 			default:
@@ -75,15 +77,7 @@ export default function GoalsProgressModal(props) {
 		setPhase: setPhase,
 	};
 
-	useEffect(() => {
-		// TODO: Requisição de avaliação de desempenho AQUI!!!
-		// postTasksToGoalsProgress()
-		if (phase === 2) {
-			setTimeout(() => {
-				setPhase(3);
-			}, 10000);
-		}
-	}, [phase]);
+	useProgressGoal(id, date, phase, diretor, setor, meta, setPhase, setProgress)
 
 	return (
 		<Modal
@@ -130,14 +124,9 @@ function DisplayModalContent(props) {
 }
 
 const getTasksQuantity = (tasks, date) => {
-	// TODO: Tarefas vão vir de outro componente
-	// getTasksFromGoals()
 	const goalsTasks = tasks.filter((task) => {
-		const initialBefore = isDateSameOrBefore(date.initDate, task.dataCriacao);
-		const finalAfter =
-			task.dataConclusao !== ''
-				? isDateSameOrAfter(date.finalDate, task.dataConclusao)
-				: true;
+		const initialBefore = isDateSameOrAfter(task.dataCriacao, date.initDate);
+		const finalAfter = isDateSameOrBefore(task.dataCriacao, date.finalDate);
 
 		return initialBefore && finalAfter;
 	});

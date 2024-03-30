@@ -8,6 +8,7 @@ import { useStore } from '../../store';
 import {
 	currentDateBRFormat,
 	dateIntervalInMonthOrDays,
+	formateBRDate,
 } from '../../utils/date';
 
 //TODO: REVER
@@ -16,12 +17,12 @@ export default function Progress() {
 	const { progress } = useStore();
 	const { state } = location;
 
-	const { responsavel, setor, periodoCalculado, dataInicio, dataFinal, meta } =
+	const { responsavel, setor, periodoCalculado, date, meta } =
 		progress.data;
 
 	useEffect(() => {
 		//TODO: ATUALIZAR DEPOIS
-		progress.setData({ data: DUMY_DATA });
+		progress.setData({ data: state });
 	}, []);
 
 	const title = `${currentDateBRFormat()} - ${meta?.nome}`;
@@ -38,8 +39,8 @@ export default function Progress() {
 			<SimpleCard>
 				<SubTitle>Período calculado</SubTitle>
 				<p>{periodoCalculado}</p>
-				<p>Início: {dataInicio}</p>
-				<p>Final: {dataFinal}</p>
+				<p>Início: {formateBRDate(date?.dataInicio)}</p>
+				<p>Final: {formateBRDate(date?.dataFim)}</p>
 			</SimpleCard>
 			<ReportModal />
 		</DetailLayout>

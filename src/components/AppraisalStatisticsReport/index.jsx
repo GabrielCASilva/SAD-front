@@ -18,13 +18,13 @@ export default function AppraisalStatisticsReport(props) {
 						<span className="b-500 block">
 							{metricas?.indiceProdutividade}{' '}
 						</span>
-						indiceProdutividade
+						Produtividade
 					</p>
 				</SimpleCard>
 				<SimpleCard cardClasses="w-max-fit-content card-border-color--yellow">
 					<p className="m-zero">
 						<span className="b-500 block">{metricas?.indiceEficacia} </span>
-						indiceEficacia
+						Eficácia
 					</p>
 				</SimpleCard>
 				{metricas?.indiceComprometimento && (
@@ -39,7 +39,7 @@ export default function AppraisalStatisticsReport(props) {
 				)}
 			</div>
 
-			<p>Tarefas avaliadas</p>
+			{/* <p>Tarefas avaliadas</p>
 			<div className="flex gap-24">
 				<SimpleCard cardClasses="w-max-fit-content card-border-color--green">
 					<p className="m-zero">
@@ -67,7 +67,7 @@ export default function AppraisalStatisticsReport(props) {
 						Inativas
 					</p>
 				</SimpleCard>
-			</div>
+			</div> */}
 		</>
 	);
 }
