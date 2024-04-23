@@ -9,14 +9,14 @@ const FOOTER_CONTENT = {
 };
 
 export default function Modal(props) {
-	const { titleButton, styleButton, footer, children } = props;
+	const { titleButton, styleButton, footer, children, onOpen = () => {} } = props;
 	const [isModalOpen, setIsModalOpen] = useState(false);
 
 	const { type = null, handleClick = null } = footer();
 
-	const showModal = () => {
+	const showModal = async () => {
 		setIsModalOpen(true);
-
+		await onOpen();
 	};
 
 	const closeModal = () => {

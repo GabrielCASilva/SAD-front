@@ -6,17 +6,20 @@ export function ReportModal() {
 	const footerProps = () => {
 		return {
 			type: 'close',
-			handleClick:  async () => {
-				const resp = await ReportService.download();
-				console.log(resp)
+			handleClick:  () => {
 			},
 		};
+	};
+
+	const onOpen = async () => {
+		await ReportService.download();
 	};
 
 	return (
 		<Modal
 			titleButton="Salvar Relatório"
 			styleButton="green"
+			onOpen={onOpen}
 			footer={footerProps}>
 			Relatório salvo com sucesso
 		</Modal>
